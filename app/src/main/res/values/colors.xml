@@ -6,15 +6,11 @@
     <color name="colorSecondary">#546e7a</color>
     <color name="colorSecondaryDark">#29434e</color>
     <color name="colorSecondaryLight">#819ca9</color>
-
     <color name="colorAccent">#FF4081</color>
-
     <color name="green">#4caf50</color>
     <color name="white">#ffffff</color>
     <color name="dullWhileOverlay">#99d6d6d6</color>
     <color name="gray">#757575</color>
-
-
     <color name="red">#ffff0000</color>
     <color name="ticker_red">#80ff0000</color>
     <!--Coppied-->
@@ -22,7 +18,8 @@
     <color name="selectedBlue">#2b3581</color>
     <color name="black">#ff000000</color>
     <color name="grayOverlay">#7f7f7f7f</color>
-
     <color name="dullWhile">#d6d6d6</color>
+    <color name="darkRed">#D50000</color>
+    <color name="lightOrange">#FFE0B2</color>
 
 </resources>

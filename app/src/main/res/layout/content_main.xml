@@ -11,129 +11,148 @@
         android:orientation="vertical"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
+
+        <TextView
+            android:id="@+id/lblAppVersion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="8dp"
+            android:background="@color/lightOrange"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textColor="@color/darkRed"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
         <TextView
             android:id="@+id/lblsummary"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="2dp"
             android:background="@color/colorSecondaryDark"
+            android:elevation="2dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
             android:text="TODAY'S SUMMARY"
             android:textAlignment="center"
             android:textAllCaps="true"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:textStyle="bold"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:elevation="2dp"
-            android:layout_marginBottom="2dp"
             android:textColor="@color/white"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <android.support.v7.widget.CardView
             style="@style/cardView"
-            android:layout_marginTop="@null"
-            android:layout_marginRight="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_marginTop="@null"
+            android:layout_marginRight="15dp">
 
             <TableLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:stretchColumns="1">
 
-                <TableRow
-                    android:elevation="2dp">
+                <TableRow android:elevation="2dp">
 
                     <TextView
+                        android:background="@color/colorSecondary"
                         android:gravity="start"
-                        android:paddingTop="3dp"
-                        android:paddingBottom="3dp"
                         android:paddingStart="5dp"
-                        android:background="@color/colorSecondary"
-                        android:textColor="@color/white"
-                        android:text="FORM ID" />
-
-                    <TextView
                         android:paddingTop="3dp"
                         android:paddingBottom="3dp"
-                        android:background="@color/colorSecondary"
-                        android:textColor="@color/white"
-                        android:gravity="center"
-                        android:text="FORM STATUS" />
+                        android:text="FORM ID"
+                        android:textColor="@color/white" />
 
                     <TextView
+                        android:background="@color/colorSecondary"
+                        android:gravity="center"
+                        android:paddingTop="3dp"
+                        android:paddingBottom="3dp"
+                        android:text="FORM STATUS"
+                        android:textColor="@color/white" />
+
+                    <TextView
+                        android:background="@color/colorSecondary"
                         android:gravity="end"
                         android:paddingTop="3dp"
-                        android:paddingBottom="3dp"
                         android:paddingEnd="5dp"
-                        android:background="@color/colorSecondary"
-                        android:textColor="@color/white"
-                        android:text="SYNC STATUS" />
+                        android:paddingBottom="3dp"
+                        android:text="SYNC STATUS"
+                        android:textColor="@color/white" />
                 </TableRow>
 
                 <TableRow
-
                     >
 
                     <TextView
                         android:id="@+id/form_id"
                         android:gravity="start"
+                        android:paddingStart="5dp"
                         android:paddingTop="3dp"
                         android:paddingBottom="3dp"
-                        android:paddingStart="5dp"
                         android:text="1\n2\n3" />
 
                     <TextView
                         android:id="@+id/complete_status"
+                        android:gravity="center"
                         android:paddingTop="3dp"
                         android:paddingBottom="3dp"
-                        android:gravity="center"
                         android:text="Complete\nIncomplete \nComplete" />
 
                     <TextView
                         android:id="@+id/sync_status"
-                        android:paddingTop="3dp"
-                        android:paddingBottom="3dp"
-                        android:paddingEnd="5dp"
                         android:gravity="end"
+                        android:paddingTop="3dp"
+                        android:paddingEnd="5dp"
+                        android:paddingBottom="3dp"
                         android:text="Not Synced\nSynced\nNot Synced" />
+
                 </TableRow>
+
             </TableLayout>
+
         </android.support.v7.widget.CardView>
 
-      <!--  <TextView
-            android:id="@+id/recordSummary"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:background="@color/black"
-            android:padding="20dp"
-            android:text="Records Summary"
-            android:textColor="@color/green"
-            android:textSize="14sp"
-            android:typeface="monospace" />
+        <!--  <TextView
+              android:id="@+id/recordSummary"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_gravity="center_horizontal"
+              android:background="@color/black"
+              android:padding="20dp"
+              android:text="Records Summary"
+              android:textColor="@color/green"
+              android:textSize="14sp"
+              android:typeface="monospace" />
 
-        <android.support.v4.widget.NestedScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@id/lblsummary"
-            android:background="@color/white"
-            android:padding="5dp">
+          <android.support.v4.widget.NestedScrollView
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:layout_below="@id/lblsummary"
+              android:background="@color/white"
+              android:padding="5dp">
 
-            <HorizontalScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+              <HorizontalScrollView
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent">
 
-                <TableLayout
-                    android:id="@+id/dashboardTable"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                  <TableLayout
+                      android:id="@+id/dashboardTable"
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent" />
 
-            </HorizontalScrollView>
+              </HorizontalScrollView>
 
-        </android.support.v4.widget.NestedScrollView>-->
+          </android.support.v4.widget.NestedScrollView>-->
+
     </LinearLayout>
+
 </layout>

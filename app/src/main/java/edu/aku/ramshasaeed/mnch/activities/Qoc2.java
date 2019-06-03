@@ -83,17 +83,19 @@ public class Qoc2 extends AppCompatActivity implements RadioGroup.OnCheckedChang
 
         JSONObject qoc2 = new JSONObject();
 
-        qoc2.put("qb0201a", bi.qb0201aa.isChecked() ? "1" : bi.qb0201ab.isChecked() ? "2" : bi.qb0201a97.isChecked() ? "97" : "0");
+        qoc2.put("qb0201a", bi.qb0201aa.isChecked() ? "1" : bi.qb0201ab.isChecked() ? "2" : bi.qb0201a97.isChecked() ? "NA" : "0");
         qoc2.put("qb0201b", bi.qb0201b.getText().toString().trim().length() > 0 ? bi.qb0201b.getText().toString() : "0");
-        qoc2.put("qb0201c", bi.qb0201c.getText().toString().trim().length() > 0 ? bi.qb0201c.getText().toString() : "0");
+//        qoc2.put("qb0201c", bi.qb0201c.getText().toString().trim().length() > 0 ? bi.qb0201c.getText().toString() : "0");
 
-        qoc2.put("qb0202a", bi.qb0202aa.isChecked() ? "1" : bi.qb0202ab.isChecked() ? "2" : bi.qb0202a97.isChecked() ? "97" : "0");
+        qoc2.put("qb0202a", bi.qb0202aa.isChecked() ? "1" : bi.qb0202ab.isChecked() ? "2" : bi.qb0202a97.isChecked() ? "NA" : "0");
         qoc2.put("qb0202b", bi.qb0202b.getText().toString().trim().length() > 0 ? bi.qb0202b.getText().toString() : "0");
-        qoc2.put("qb0202c", bi.qb0202c.getText().toString().trim().length() > 0 ? bi.qb0202c.getText().toString() : "0");
+//        qoc2.put("qb0202c", bi.qb0202c.getText().toString().trim().length() > 0 ? bi.qb0202c.getText().toString() : "0");
 
-        qoc2.put("qb0203a", bi.qb0203aa.isChecked() ? "1" : bi.qb0203ab.isChecked() ? "2" : bi.qb0203a97.isChecked() ? "97" : "0");
+        qoc2.put("qb0203a", bi.qb0203aa.isChecked() ? "1" : bi.qb0203ab.isChecked() ? "2" : bi.qb0203a97.isChecked() ? "NA" : "0");
         qoc2.put("qb0203b", bi.qb0203b.getText().toString().trim().length() > 0 ? bi.qb0203b.getText().toString() : "0");
-        qoc2.put("qb0203c", bi.qb0203c.getText().toString().trim().length() > 0 ? bi.qb0203c.getText().toString() : "0");
+//        qoc2.put("qb0203c", bi.qb0203c.getText().toString().trim().length() > 0 ? bi.qb0203c.getText().toString() : "0");
+
+        qoc2.put("qb02Ap", bi.qb02Ap.getText().toString().trim().length() > 0 ? bi.qb02Ap.getText().toString() : "0");
 
         fc.setSqoc2(String.valueOf(qoc2));
 

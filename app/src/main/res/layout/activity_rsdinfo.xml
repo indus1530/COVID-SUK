@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     tools:context="edu.aku.ramshasaeed.mnch.activities.RSDInfoActivity">
 
     <data>
@@ -19,28 +19,11 @@
         android:layout_height="wrap_content">
 
         <LinearLayout
+            android:id="@+id/fldGrpInfo01"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:animateLayoutChanges="true"
             android:orientation="vertical">
-
-            <!--   <TextView
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:layout_marginBottom="5dp"
-                   android:layout_marginTop="5dp"
-                   android:background="@color/colorPrimaryDark"
-                   android:text="@string/section_A"
-                   android:textAlignment="center"
-                   android:textColor="@android:color/white"
-                   android:textSize="30sp"
-                   android:textStyle="bold"
-                   tools:typeface="serif" />
-
-               <View
-                   android:layout_width="match_parent"
-                   android:layout_height="2dp"
-                   android:background="@color/colorPrimaryDark" />-->
 
             <TextView
                 android:layout_width="match_parent"
@@ -51,38 +34,41 @@
             <Spinner
                 android:id="@+id/hf_district"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
+                android:layout_height="match_parent"
                 android:layout_marginTop="10dp"
+                android:layout_marginBottom="15dp"
                 android:popupBackground="#d6d6d6"
                 android:prompt="@string/hf_district" />
 
-        <!--    <LinearLayout
-                android:id="@+id/fldGrphf_district"
+
+
+
+        <LinearLayout
+            android:id="@+id/fldGrpInfo02"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true"
+            android:orientation="vertical">
+
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="gone"
-                tools:visibility="visible">
+                android:layout_marginTop="8dp"
+                android:text="@string/hf_uen" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="@string/hf_tehsil" />
+            <Spinner
+                android:id="@+id/hf_facility_provider"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="15dp"
+                android:popupBackground="#d6d6d6"
+                android:prompt="@string/hf_uen" />
 
-                <Spinner
-                    android:id="@+id/hf_tehsil"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="15dp"
-                    android:layout_marginTop="10dp"
-                    android:background="@color/colorSecondaryLight"
-                    android:popupBackground="#d6d6d6"
-                    android:prompt="@string/hf_tehsil" />-->
+        </LinearLayout>
 
-             <!--   <LinearLayout
-                    android:id="@+id/fldGrphf_tehsil"
+            <!--    <LinearLayout
+                    android:id="@+id/fldGrphf_district"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
@@ -93,29 +79,55 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:text="@string/hf_uc" />
+                        android:text="@string/hf_tehsil" />
 
                     <Spinner
-                        android:id="@+id/hf_uc"
+                        android:id="@+id/hf_tehsil"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="15dp"
                         android:layout_marginTop="10dp"
                         android:background="@color/colorSecondaryLight"
                         android:popupBackground="#d6d6d6"
-                        android:prompt="@string/hf_uc" />
+                        android:prompt="@string/hf_tehsil" />-->
 
+            <!--   <LinearLayout
+                   android:id="@+id/fldGrphf_tehsil"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="vertical"
+                   android:visibility="gone"
+                   tools:visibility="visible">
+
+                   <TextView
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_marginTop="8dp"
+                       android:text="@string/hf_uc" />
+
+                   <Spinner
+                       android:id="@+id/hf_uc"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_marginBottom="15dp"
+                       android:layout_marginTop="10dp"
+                       android:background="@color/colorSecondaryLight"
+                       android:popupBackground="#d6d6d6"
+                       android:prompt="@string/hf_uc" />
 
 -->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="@string/meetingtime" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/meetingtime" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -135,13 +147,14 @@
                         android:id="@+id/hf_mdate"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="2dp"
                         android:layout_marginTop="2dp"
+                        android:layout_marginBottom="2dp"
                         android:layout_weight="4"
                         android:focusable="false"
                         android:hint="DD/MM/YYYY"
                         android:textColor="@android:color/black"
-                        app:dateFormat="dd-MM-yyyy" />
+                        app:dateFormat="dd-MM-yyyy"
+                        app:maxDate="CR_DATE" />
 
                 </LinearLayout>
 
@@ -170,117 +183,94 @@
                         android:textColor="@android:color/black"
                         app:is24HourView="true"
                         app:timeFormat="HH:mm" />
+
                 </LinearLayout>
+
             </LinearLayout>
 
+       <!--
             <LinearLayout
-                        android:id="@+id/fldGrphf_uc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/colorPrimary"
+                    android:text="@string/hf_consent"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@android:color/white" />
+
+                <RadioGroup
+                    android:id="@+id/hf_consent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/hf_consenta"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:visibility="visible"
-                        tools:visibility="visible">
+                        android:layout_marginBottom="1dp"
+                        android:layout_weight="1"
+                        android:text="@string/yes" />
 
-                    <!--    <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="@string/hf_uen" />
+                    <RadioButton
+                        android:id="@+id/hf_consentb"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="1dp"
+                        android:layout_weight="1"
+                        android:text="@string/no" />
 
-                        <Spinner
-                            android:id="@+id/hf_facility_provider"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="15dp"
-                            android:layout_marginTop="10dp"
-                            android:popupBackground="#d6d6d6"
-                            android:prompt="@string/hf_uen" />-->
+                </RadioGroup>
 
+            </LinearLayout>
 
-                        <LinearLayout
-                            android:id="@+id/fldGrphf_facility_provider"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
+-->
 
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="16dp"
-                                android:background="@color/colorPrimary"
-                                android:text="@string/hf_consent"
-                                android:textAppearance="?android:attr/textAppearanceLarge"
-                                android:textColor="@android:color/white" />
+            <LinearLayout
+                android:id="@+id/fldGrpbtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="32dp">
 
-                            <RadioGroup
-                                android:id="@+id/hf_consent"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/btn_End"
+                    style="@style/buttons"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/red"
+                    android:onClick="@{() -> callback.BtnEnd()}"
+                    android:text="@string/endForm"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
 
-                                <RadioButton
-                                    android:id="@+id/hf_consenta"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginBottom="1dp"
-                                    android:layout_weight="1"
-                                    android:text="@string/yes" />
+                <Button
+                    android:id="@+id/btnNext"
+                    style="@style/buttons"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="#1ed61e"
+                    android:onClick="@{() -> callback.BtnContinue()}"
+                    android:text="@string/nextSection"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
 
-                                <RadioButton
-                                    android:id="@+id/hf_consentb"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginBottom="1dp"
-                                    android:layout_weight="1"
-                                    android:text="@string/no" />
+            </LinearLayout>
 
-                            </RadioGroup>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:id="@+id/fldGrphf_uen"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:visibility="visible">
-
-
-                            <LinearLayout
-                                android:id="@+id/fldGrpbtn"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal"
-                                android:paddingTop="32dp">
-                                <Button
-                                    android:id="@+id/btnEnd"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="4dp"
-                                    android:layout_weight="1"
-                                    android:onClick="@{() -> callback.BtnEnd()}"
-                                    android:text="@string/endForm"
-                                    android:textColor="@android:color/holo_red_light"
-                                    android:textSize="24sp"
-                                    android:textStyle="bold" />
-                                <Button
-                                    android:id="@+id/btnNext"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="4dp"
-                                    android:layout_weight="1"
-                                    android:onClick="@{() -> callback.BtnContinue()}"
-                                    android:text="@string/nextSection"
-                                    android:textColor="@android:color/holo_green_light"
-                                    android:textSize="24sp" />
-
-
-                            </LinearLayout>
-                        </LinearLayout>
-                    </LinearLayout>
-                <!--</LinearLayout>-->
+            <!--</LinearLayout>-->
 
             <!--</LinearLayout>-->
 
         </LinearLayout>
+
     </ScrollView>
+
 </layout>

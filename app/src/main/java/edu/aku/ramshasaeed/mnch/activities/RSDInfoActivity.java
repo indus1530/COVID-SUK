@@ -4,10 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.databinding.DataBindingUtil;
+import android.opengl.Visibility;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.format.DateFormat;
-import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -22,7 +22,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
 import edu.aku.ramshasaeed.mnch.R;
@@ -31,10 +33,8 @@ import edu.aku.ramshasaeed.mnch.core.MainApp;
 import edu.aku.ramshasaeed.mnch.data.DAO.FormsDAO;
 import edu.aku.ramshasaeed.mnch.data.DAO.GetFncDAO;
 import edu.aku.ramshasaeed.mnch.data.entities.District;
-import edu.aku.ramshasaeed.mnch.data.entities.Facility_provider;
+import edu.aku.ramshasaeed.mnch.data.entities.FacilityProvider;
 import edu.aku.ramshasaeed.mnch.data.entities.Forms;
-import edu.aku.ramshasaeed.mnch.data.entities.Tehsil;
-import edu.aku.ramshasaeed.mnch.data.entities.UCs;
 import edu.aku.ramshasaeed.mnch.databinding.ActivityRsdinfoBinding;
 import edu.aku.ramshasaeed.mnch.get.db.GetAllDBData;
 import edu.aku.ramshasaeed.mnch.validation.validatorClass;
@@ -44,57 +44,57 @@ import static android.view.View.VISIBLE;
 import static edu.aku.ramshasaeed.mnch.activities.LoginActivity.db;
 
 public class RSDInfoActivity extends AppCompatActivity {
-    ActivityRsdinfoBinding bi;
-    public List<String> districtNames, tehsilNames, UCsName, facility_name;
-    public List<String> districtCodes, tehsilCodes, UCsCodes, facility_code;
+    private ActivityRsdinfoBinding bi;
+    private List<String> districtNames, districtCodes, facility_name;
+    private Map<String, FacilityProvider> facilityMap;
     public static Forms fc;
     private static final String TAG = RSDInfoActivity.class.getName();
-    String type;
-    String dateToday = new SimpleDateFormat("dd/MM/yyyy").format(new Date().getTime());
-
+    private String type;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_rsdinfo);
         bi.setCallback(this);
-        this.setTitle(R.string.app_name);
 
         type = getIntent().getStringExtra(MainApp.FORM_TYPE);
+        this.setTitle(type.equals(MainApp.RSD) ? "ROUTINE SERVICE DELIVERY" : type.equals(MainApp.DHMT) ? "DHMT" : type.equals(MainApp.QOC) ? "QUALITY OF CARE" : "");
 
         tempVisible(this);
-        bi.hfConsent.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+
+        if (type.equals(MainApp.DHMT)) {
+            bi.fldGrpInfo02.setVisibility(GONE);
+        } else {
+            bi.fldGrpInfo02.setVisibility(VISIBLE);
+        }
+
+        /*bi.hfConsent.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                if(bi.hfConsenta.isChecked()){
+                if (bi.hfConsenta.isChecked()) {
                     bi.btnNext.setVisibility(VISIBLE);
-                }else{
+                } else {
                     bi.btnNext.setVisibility(GONE);
                 }
             }
-        });
+        });*/
 
-        bi.hfMdate.setManager(getSupportFragmentManager());
-        bi.hfMdate.setMaxDate(dateToday);
-        bi.hfMtime.setManager(getSupportFragmentManager());
         bi.hfMtime.setTimeFormat("HH:mm");
         bi.hfMtime.setIs24HourView(true);
     }
 
     private void tempVisible(final Context context) {
 
-
         districtNames = new ArrayList<>();
         districtCodes = new ArrayList<>();
 
         districtNames.add("....");
         districtCodes.add("....");
-        Collection<District> districts = null;
+        Collection<District> districts;
         try {
             districts = (Collection<District>) new GetAllDBData(db, GetFncDAO.class.getName(), "getFncDao", "getAllDistricts").execute().get();
 
             if (districts != null) {
-                Toast.makeText(this, "District ID validate...", Toast.LENGTH_SHORT).show();
                 for (District d : districts) {
                     districtNames.add(d.getDistrict_name());
                     districtCodes.add(d.getDistrict_code());
@@ -105,7 +105,6 @@ public class RSDInfoActivity extends AppCompatActivity {
 
                 // Drop down layout style - list view with radio button
                 dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
 
                 // attaching data adapter to spinner
                 bi.hfDistrict.setAdapter(dataAdapter);
@@ -121,261 +120,48 @@ public class RSDInfoActivity extends AppCompatActivity {
         }
 
 
-        bi.hfDistrict.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                MainApp.DistrictCode = districtCodes.get(position);
-/*
-                facility_code = new ArrayList<>();
-                facility_name = new ArrayList<>();
-                tehsilNames = new ArrayList<>();
-                UCsName = new ArrayList<>();
+        if (!type.equals(MainApp.DHMT)) {
+            bi.hfDistrict.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    if (position == 0) return;
 
+                    facility_name = new ArrayList<>();
+                    facility_name.add("....");
 
-                facility_code.add("....");
-                facility_name.add("....");
-                UCsName.add("....");
+                    Collection<FacilityProvider> facility_provider;
+                    try {
+                        facility_provider =
+                                (Collection<FacilityProvider>)
+                                        new GetAllDBData(db, GetFncDAO.class.getName(), "getFncDao", "getFacilityProvider")
+                                                .execute(districtCodes.get(position)).get();
 
-
-                Collection<Facility_provider> facility_provider = null;
-                try {
-                    facility_provider = (Collection<Facility_provider>) new GetAllDBData(db, GetFncDAO.class.getName(), "getFncDao", "getFacilityProvider").execute(MainApp.DistrictCode).get();
-
-                    if (facility_provider != null) {
-                        for (Facility_provider fp : facility_provider) {
-                            facility_name.add(fp.getHf_name());
-                            facility_code.add(fp.getHf_uen_code());
-                            tehsilNames.add(fp.getHf_tehsil());
-                            UCsName.add(fp.getHf_uc());
-                        }
-                        // Creating adapter for spinner
-                        ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(context,
-                                android.R.layout.simple_spinner_dropdown_item, facility_name);
-
-                        // Drop down layout style - list view with radio button
-                        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-
-                        // attaching data adapter to spinner
-//                        bi.hfFacilityProvider.setAdapter(dataAdapter);
-                     *//*   if (position == 0) {
-                            bi.fldGrphfUc.setVisibility(GONE);
-
-                        } else {
-                            bi.fldGrphfUc.setVisibility(VISIBLE);
-
-                        }
-*//*
-                    } else {
-//                        Toast.makeText(this, "Tehsils not found!!", Toast.LENGTH_SHORT).show();
-//                        bi.fldGrphfUc.setVisibility(GONE);
-                    }
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } catch (ExecutionException e) {
-                    e.printStackTrace();
-                }*/
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-//                bi.fldGrphfUc.setVisibility(GONE);
-
-            }
-        });
-        /* bi.hfDistrict.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                MainApp.DistrictCode = districtCodes.get(position);
-
-                tehsilCodes = new ArrayList<>();
-                tehsilNames = new ArrayList<>();
-
-
-                tehsilCodes.add("....");
-                tehsilNames.add("....");
-
-
-                Collection<Tehsil> tehsils = null;
-                try {
-                    tehsils = (Collection<Tehsil>) new GetAllDBData(db, GetFncDAO.class.getName(), "getFncDao", "getTehsil").execute(MainApp.DistrictCode).get();
-
-                    if (tehsils != null) {
-                        for (Tehsil t : tehsils) {
-                            tehsilNames.add(t.getTehsil_name());
-                            tehsilCodes.add(t.getTehsil_code());
-                        }
-                        // Creating adapter for spinner
-                        ArrayAdapter<String> dataAdapter1 = new ArrayAdapter<>(context,
-                                android.R.layout.simple_spinner_dropdown_item, tehsilNames);
-
-                        // Drop down layout style - list view with radio button
-                        dataAdapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-
-                        // attaching data adapter to spinner
-                        bi.hfTehsil.setAdapter(dataAdapter1);
-                        if (position == 0) {
-                            bi.fldGrphfDistrict.setVisibility(GONE);
-
-                        } else {
-                            bi.fldGrphfDistrict.setVisibility(VISIBLE);
-
+                        facilityMap = new HashMap<>();
+                        if (facility_provider.size() != 0) {
+                            for (FacilityProvider fp : facility_provider) {
+                                facility_name.add(fp.getHf_name());
+                                facilityMap.put(fp.getHf_name(), fp);
+                            }
                         }
 
-                    } else {
-//                        Toast.makeText(this, "Tehsils not found!!", Toast.LENGTH_SHORT).show();
+                        bi.hfFacilityProvider.setAdapter(new ArrayAdapter<>(context,
+                                android.R.layout.simple_spinner_dropdown_item, facility_name));
+
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    } catch (ExecutionException e) {
+                        e.printStackTrace();
                     }
 
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } catch (ExecutionException e) {
-                    e.printStackTrace();
                 }
 
-            }
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                bi.fldGrphfDistrict.setVisibility(GONE);
-
-            }
-        });
-
-        bi.hfTehsil.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                MainApp.tehsilCode = tehsilCodes.get(position);
-
-                UCsCodes = new ArrayList<>();
-                UCsName = new ArrayList<>();
-
-
-                UCsCodes.add("....");
-                UCsName.add("....");
-
-
-                Collection<UCs> UCs = null;
-                try {
-                    UCs = (Collection<UCs>) new GetAllDBData(db, GetFncDAO.class.getName(), "getFncDao", "getUCs").execute(MainApp.tehsilCode).get();
-
-                    if (UCs != null) {
-                        for (UCs u : UCs) {
-                            UCsName.add(u.getUCs_name());
-                            UCsCodes.add(u.getUCs_code());
-                        }
-                        // Creating adapter for spinner
-                        ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(context,
-                                android.R.layout.simple_spinner_dropdown_item, UCsName);
-
-                        // Drop down layout style - list view with radio button
-                        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-
-                        // attaching data adapter to spinner
-                        bi.hfUc.setAdapter(dataAdapter);
-                        if (position == 0) {
-                            bi.fldGrphfTehsil.setVisibility(GONE);
-
-                        } else {
-                            bi.fldGrphfTehsil.setVisibility(VISIBLE);
-
-                        }
-
-                    } else {
-//                        Toast.makeText(this, "Tehsils not found!!", Toast.LENGTH_SHORT).show();
-                        bi.fldGrphfTehsil.setVisibility(GONE);
-                    }
-
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } catch (ExecutionException e) {
-                    e.printStackTrace();
                 }
+            });
+        }
 
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                bi.fldGrphfTehsil.setVisibility(GONE);
-
-            }
-        });
-        bi.hfUc.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                MainApp.facilityProviderCode = UCsCodes.get(position);
-
-                facility_code = new ArrayList<>();
-                facility_name = new ArrayList<>();
-
-
-                facility_code.add("....");
-                facility_name.add("....");
-
-
-                Collection<Facility_provider> facility_provider = null;
-                try {
-                    facility_provider = (Collection<Facility_provider>) new GetAllDBData(db, GetFncDAO.class.getName(), "getFncDao", "getFacilityProvider").execute(MainApp.facilityProviderCode).get();
-
-                    if (facility_provider != null) {
-                        for (Facility_provider fp : facility_provider) {
-                            facility_name.add(fp.getProvider_name());
-                            facility_code.add(fp.getProvider_code());
-                        }
-                        // Creating adapter for spinner
-                        ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(context,
-                                android.R.layout.simple_spinner_dropdown_item, facility_name);
-
-                        // Drop down layout style - list view with radio button
-                        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-
-                        // attaching data adapter to spinner
-                        bi.hfFacilityProvider.setAdapter(dataAdapter);
-                        if (position == 0) {
-                            bi.fldGrphfUc.setVisibility(GONE);
-
-                        } else {
-                            bi.fldGrphfUc.setVisibility(VISIBLE);
-
-                        }
-
-                    } else {
-//                        Toast.makeText(this, "Tehsils not found!!", Toast.LENGTH_SHORT).show();
-                        bi.fldGrphfUc.setVisibility(GONE);
-                    }
-
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                } catch (ExecutionException e) {
-                    e.printStackTrace();
-                }
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                bi.fldGrphfUc.setVisibility(GONE);
-
-            }
-        });
-*/
-       /* bi.hfFacilityProvider.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-                MainApp.facilityProviderCode = facility_code.get(position);
-                MainApp.tehsilCode = tehsilNames.get(position);
-                MainApp.ucCode = UCsName.get(position);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
-*/
 
     }
 
@@ -404,26 +190,7 @@ public class RSDInfoActivity extends AppCompatActivity {
     }
 
     public boolean formValidation() {
-        if (!validatorClass.EmptySpinner(this, bi.hfDistrict, getString(R.string.hf_district))) {
-            return false;
-        }
-       /* if (!validatorClass.EmptySpinner(this, bi.hfTehsil, getString(R.string.hf_tehsil))) {
-            return false;
-        }
-        if (!validatorClass.EmptySpinner(this, bi.hfUc, getString(R.string.hf_uc))) {
-            return false;
-        }*/
-      /*  if (!validatorClass.EmptySpinner(this, bi.hfFacilityProvider, getString(R.string.hf_uen))) {
-            return false;
-        }*/
-
-        if (!validatorClass.EmptyTextBox(this, bi.hfMdate, getString(R.string.meetingtime)+" "+getString(R.string.date))) {
-            return false;
-        }
-        if (!validatorClass.EmptyTextBox(this, bi.hfMtime, getString(R.string.meetingtime)+" "+getString(R.string.time))) {
-            return false;
-        }
-        return validatorClass.EmptyRadioButton(this, bi.hfConsent, bi.hfConsenta, getString(R.string.hf_consent));
+        return validatorClass.EmptyCheckingContainer(this, bi.fldGrpInfo01);
     }
 
     private void SaveDraft() throws JSONException {
@@ -433,27 +200,34 @@ public class RSDInfoActivity extends AppCompatActivity {
         fc.setFormType(type);
         fc.setAppversion(MainApp.versionName + "." + MainApp.versionCode);
         fc.setUsername(MainApp.userName);
-        fc.setFormDate(new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime()));
+        fc.setFormDate(new SimpleDateFormat("dd-MM-yyyy HH:mm").format(new Date().getTime()));
         fc.setDeviceID(MainApp.deviceId);
-
 
         setGPS(fc); // Set GPS
 
-
         JSONObject f01 = new JSONObject();
-        f01.put("district_code", MainApp.DistrictCode);
-      /*  f01.put("tehsil_code", MainApp.tehsilCode);
-        f01.put("uc_code", MainApp.ucCode);
-        f01.put("facility_provider_code", MainApp.facilityProviderCode);*/
-        f01.put("hf_mdate", bi.hfMdate.getText().toString());
-        f01.put("hf_mtime",  bi.hfMtime.getText().toString());
-        f01.put("rs_consent", bi.hfConsenta.isChecked() ? "1"
-                : bi.hfConsentb.isChecked() ? "2"
-                : "0");
+        f01.put("district_code", districtCodes.get(bi.hfDistrict.getSelectedItemPosition()));
 
+        if (!type.equals(MainApp.DHMT)) {
+            FacilityProvider fp = facilityMap.get(bi.hfFacilityProvider.getSelectedItem().toString());
+            f01.put("hf_dhis", fp.getHf_dhis());
+            f01.put("hf_district_code", fp.getHf_district_code());
+            f01.put("hf_tehsil", fp.getHf_tehsil());
+            f01.put("hf_uc", fp.getHf_uc());
+            f01.put("hf_name", fp.getHf_name());
+            f01.put("hf_name_govt", fp.getHf_name_govt());
+            f01.put("hf_uen_code", fp.getHf_uen_code());
+
+        }
+
+        /*f01.put("hf_mdate", bi.hfMdate.getText().toString());
+        f01.put("hf_mtime", bi.hfMtime.getText().toString());*/
+
+        /*f01.put("rs_consent", bi.hfConsenta.isChecked() ? "1"
+                : bi.hfConsentb.isChecked() ? "2"
+                : "0");*/
 
         fc.setSinfo(String.valueOf(f01));
-
     }
 
     public void setGPS(Forms fc) {
@@ -512,5 +286,6 @@ public class RSDInfoActivity extends AppCompatActivity {
         return false;
 
     }
+
 
 }

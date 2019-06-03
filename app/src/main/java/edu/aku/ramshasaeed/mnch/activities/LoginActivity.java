@@ -119,7 +119,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
                     .getPackageManager()
                     .getPackageInfo("edu.aku.ramshasaeed.mnch", 0)
                     .versionName;
-            bi.txtinstalldate.setText("Ver. " + versionName + "." + String.valueOf(versionCode) + " \r\n( Last Updated: " + new SimpleDateFormat("dd MMM. yyyy").format(new Date(installedOn)) + " )");
+            bi.txtinstalldate.setText("Ver. " + versionName + "." + versionCode + " \r\n( Last Updated: " + new SimpleDateFormat("dd MMM. yyyy").format(new Date(installedOn)) + " )");
 //
             MainApp.versionCode = versionCode;
             MainApp.versionName = versionName;
@@ -134,11 +134,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (checkAndRequestPermissions()) {
                 populateAutoComplete();
-               // loadIMEI(); devices for this proj are below marshmellow
+                // loadIMEI(); devices for this proj are below marshmellow
             }
         } else {
             populateAutoComplete();
-           // loadIMEI(); devices for this proj are below marshmellow
+            // loadIMEI(); devices for this proj are below marshmellow
 
         }
 //        db = AppDatabase.getDatabase(getApplicationContext());
@@ -146,15 +146,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
         bi.password.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
-                if (id == EditorInfo.IME_ACTION_DONE || id == EditorInfo.IME_NULL) {
-//                    attemptLogin();
-//                    MainApp.loginMem[1] = bi.email.getText().toString();
-
-
-                    return true;
-
-                }
-                return false;
+                //                    attemptLogin();
+                //                    MainApp.loginMem[1] = bi.email.getText().toString();
+                return id == EditorInfo.IME_ACTION_DONE || id == EditorInfo.IME_NULL;
             }
         });
 
@@ -308,49 +302,39 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
         return provider1.equals(provider2);
     }
 
-    public class GPSLocationListener implements LocationListener {
-        public void onLocationChanged(Location location) {
+    //    /**
+//     * Shows the progress UI and hides the login form.
+//     */
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
+    private void showProgress(final boolean show) {
+        // On Honeycomb MR2 we have the ViewPropertyAnimator APIs, which allow
+        // for very easy animations. If available, use these APIs to fade-in
+        // the progress spinner.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
+            int shortAnimTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
 
-            SharedPreferences sharedPref = getSharedPreferences("GPSCoordinates", Context.MODE_PRIVATE);
-            SharedPreferences.Editor editor = sharedPref.edit();
+            bi.loginForm.setVisibility(show ? View.GONE : View.VISIBLE);
+            bi.loginForm.animate().setDuration(shortAnimTime).alpha(
+                    show ? 0 : 1).setListener(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    bi.loginForm.setVisibility(show ? View.GONE : View.VISIBLE);
+                }
+            });
 
-            String dt = DateFormat.format("dd-MM-yyyy HH:mm", Long.parseLong(sharedPref.getString("Time", "0"))).toString();
-
-            Location bestLocation = new Location("storedProvider");
-            bestLocation.setAccuracy(Float.parseFloat(sharedPref.getString("Accuracy", "0")));
-            bestLocation.setTime(Long.parseLong(sharedPref.getString(dt, "0")));
-            bestLocation.setLatitude(Float.parseFloat(sharedPref.getString("Latitude", "0")));
-            bestLocation.setLongitude(Float.parseFloat(sharedPref.getString("Longitude", "0")));
-
-            if (isBetterLocation(location, bestLocation)) {
-                editor.putString("Longitude", String.valueOf(location.getLongitude()));
-                editor.putString("Latitude", String.valueOf(location.getLatitude()));
-                editor.putString("Accuracy", String.valueOf(location.getAccuracy()));
-                editor.putString("Time", String.valueOf(location.getTime()));
-                editor.putString("Elevation", String.valueOf(location.getAltitude()));
-                String date = DateFormat.format("dd-MM-yyyy HH:mm", Long.parseLong(String.valueOf(location.getTime()))).toString();
-//                Toast.makeText(getApplicationContext(),
-//                        "GPS Commit! LAT: " + String.valueOf(location.getLongitude()) +
-//                                " LNG: " + String.valueOf(location.getLatitude()) +
-//                                " Accuracy: " + String.valueOf(location.getAccuracy()) +
-//                                " Time: " + date,
-//                        Toast.LENGTH_SHORT).show();
-
-                editor.apply();
-            }
-        }
-
-
-        public void onStatusChanged(String s, int i, Bundle b) {
-           // showCurrentLocation();
-        }
-
-        public void onProviderDisabled(String s) {
-
-        }
-
-        public void onProviderEnabled(String s) {
-
+            bi.loginProgress.setVisibility(show ? View.VISIBLE : View.GONE);
+            bi.loginProgress.animate().setDuration(shortAnimTime).alpha(
+                    show ? 1 : 0).setListener(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    bi.loginProgress.setVisibility(show ? View.VISIBLE : View.GONE);
+                }
+            });
+        } else {
+            // The ViewPropertyAnimator APIs are not available, so simply show
+            // and hide the relevant UI components.
+            bi.loginProgress.setVisibility(show ? View.VISIBLE : View.GONE);
+            bi.loginForm.setVisibility(show ? View.GONE : View.VISIBLE);
         }
     }
 
@@ -583,39 +567,49 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
         return password.length() >= 7;
     }
 
-//    /**
-//     * Shows the progress UI and hides the login form.
-//     */
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
-    private void showProgress(final boolean show) {
-        // On Honeycomb MR2 we have the ViewPropertyAnimator APIs, which allow
-        // for very easy animations. If available, use these APIs to fade-in
-        // the progress spinner.
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
-            int shortAnimTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
+    public class GPSLocationListener implements LocationListener {
+        public void onLocationChanged(Location location) {
 
-            bi.loginForm.setVisibility(show ? View.GONE : View.VISIBLE);
-            bi.loginForm.animate().setDuration(shortAnimTime).alpha(
-                    show ? 0 : 1).setListener(new AnimatorListenerAdapter() {
-                @Override
-                public void onAnimationEnd(Animator animation) {
-                    bi.loginForm.setVisibility(show ? View.GONE : View.VISIBLE);
-                }
-            });
+            SharedPreferences sharedPref = getSharedPreferences("GPSCoordinates", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPref.edit();
 
-            bi.loginProgress.setVisibility(show ? View.VISIBLE : View.GONE);
-            bi.loginProgress.animate().setDuration(shortAnimTime).alpha(
-                    show ? 1 : 0).setListener(new AnimatorListenerAdapter() {
-                @Override
-                public void onAnimationEnd(Animator animation) {
-                    bi.loginProgress.setVisibility(show ? View.VISIBLE : View.GONE);
-                }
-            });
-        } else {
-            // The ViewPropertyAnimator APIs are not available, so simply show
-            // and hide the relevant UI components.
-            bi.loginProgress.setVisibility(show ? View.VISIBLE : View.GONE);
-            bi.loginForm.setVisibility(show ? View.GONE : View.VISIBLE);
+            String dt = DateFormat.format("dd-MM-yyyy HH:mm", Long.parseLong(sharedPref.getString("Time", "0"))).toString();
+
+            Location bestLocation = new Location("storedProvider");
+            bestLocation.setAccuracy(Float.parseFloat(sharedPref.getString("Accuracy", "0")));
+            bestLocation.setTime(Long.parseLong(sharedPref.getString(dt, "0")));
+            bestLocation.setLatitude(Float.parseFloat(sharedPref.getString("Latitude", "0")));
+            bestLocation.setLongitude(Float.parseFloat(sharedPref.getString("Longitude", "0")));
+
+            if (isBetterLocation(location, bestLocation)) {
+                editor.putString("Longitude", String.valueOf(location.getLongitude()));
+                editor.putString("Latitude", String.valueOf(location.getLatitude()));
+                editor.putString("Accuracy", String.valueOf(location.getAccuracy()));
+                editor.putString("Time", String.valueOf(location.getTime()));
+                editor.putString("Elevation", String.valueOf(location.getAltitude()));
+                String date = DateFormat.format("dd-MM-yyyy HH:mm", Long.parseLong(String.valueOf(location.getTime()))).toString();
+//                Toast.makeText(getApplicationContext(),
+//                        "GPS Commit! LAT: " + String.valueOf(location.getLongitude()) +
+//                                " LNG: " + String.valueOf(location.getLatitude()) +
+//                                " Accuracy: " + String.valueOf(location.getAccuracy()) +
+//                                " Time: " + date,
+//                        Toast.LENGTH_SHORT).show();
+
+                editor.apply();
+            }
+        }
+
+
+        public void onStatusChanged(String s, int i, Bundle b) {
+            // showCurrentLocation();
+        }
+
+        public void onProviderDisabled(String s) {
+
+        }
+
+        public void onProviderEnabled(String s) {
+
         }
     }
 
@@ -781,7 +775,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
         }
 
 
-
         @Override
         protected void onCancelled() {
             mAuthTask = null;
@@ -803,17 +796,19 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
 
                 @Override
                 public void run() {
-                    Toast.makeText(LoginActivity.this, "Sync Users", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginActivity.this, "Sync Users", Toast.LENGTH_SHORT).show();
                     new GetAllData(mContext, "User", MainApp._HOST_URL + CONSTANTS.URL_USERS).execute();
-                    Toast.makeText(LoginActivity.this, "Sync District", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginActivity.this, "Sync District", Toast.LENGTH_SHORT).show();
                     new GetAllData(mContext, "District", MainApp._HOST_URL + CONSTANTS.URL_DISTRICT).execute();
+                    Toast.makeText(LoginActivity.this, "Sync Facility Provider", Toast.LENGTH_SHORT).show();
+                    new GetAllData(mContext, "FacilityProvider", MainApp._HOST_URL + CONSTANTS.URL_HEALTH_FACILITY).execute();
+                    Toast.makeText(LoginActivity.this, "Sync AppVersion", Toast.LENGTH_SHORT).show();
+                    new GetAllData(mContext, "appversion", MainApp._UPDATE_URL + CONSTANTS.URL_UPDATE_APP).execute();
+
                     /*Toast.makeText(MainActivity.this, "Sync Tehsil", Toast.LENGTH_LONG).show();
                     new GetAllData(mContext, "Tehsil", MainApp._HOST_URL + CONSTANTS.URL_TEHSIL).execute();
                     Toast.makeText(MainActivity.this, "Sync UCs", Toast.LENGTH_LONG).show();
                     new GetAllData(mContext, "UCs", MainApp._HOST_URL + CONSTANTS.URL_UCS).execute();*/
-                   /* Toast.makeText(LoginActivity.this, "Sync Facility Provider", Toast.LENGTH_LONG).show();
-                    new GetAllData(mContext, "FacilityProvider", MainApp._HOST_URL + CONSTANTS.URL_HEALTH_FACILITY).execute();*/
-
                 }
             });
 

@@ -29,17 +29,19 @@
 
             <TextView
                 style="@style/textViewCenterGravity"
-                android:text="@string/rshint01"
-                android:elevation="5dp"/>
+                android:elevation="5dp"
+                android:text="@string/rshint01" />
 
             <!--01-->
-            <android.support.v7.widget.CardView style="@style/cardView"
-                android:layout_marginTop="@null"
+            <android.support.v7.widget.CardView
+                style="@style/cardView"
                 android:layout_marginLeft="3dp"
+                android:layout_marginTop="@null"
                 android:layout_marginRight="3dp">
-                <LinearLayout style="@style/linerlayout_view"
-                  android:paddingRight="5dp"
-                    >
+
+                <LinearLayout
+                    style="@style/linerlayout_view"
+                    android:paddingRight="5dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -48,9 +50,9 @@
 
                         <TextView
                             style="@style/textViewstartAlignGravity"
-                            android:layout_marginBottom="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:layout_weight="3"
                             android:text="@string/rs01" />
 
@@ -65,47 +67,48 @@
                                 style="@style/textInput"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginRight="2dp"
+                                android:gravity="center"
                                 android:hint="@string/numberhint"
                                 android:inputType="number"
-                                android:layout_marginTop="8dp"
                                 android:maxLength="4"
-                                android:layout_marginRight="2dp"
-                                android:layout_marginLeft="2dp"
-                                android:gravity="center"
                                 android:text='@{rs0199.checked ?  "":rs01.getText.toString }'
                                 android:visibility='@{rs0199.checked ? View.GONE : View.VISIBLE }' />
 
-                        <CheckBox
-                            android:id="@+id/rs0199"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:text="@string/msing"
-                            android:layout_marginRight="3dp"
-                            android:layout_gravity="center"
-                            android:gravity="center"
-                            android:textColor="@color/gray"
-                            android:textSize="16sp" />
+                            <CheckBox
+                                android:id="@+id/rs0199"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginRight="3dp"
+                                android:gravity="center"
+                                android:text="@string/msing"
+                                android:textColor="@color/gray"
+                                android:textSize="16sp" />
                         </LinearLayout>
 
                     </LinearLayout>
-             <!--   </LinearLayout>
-            </android.support.v7.widget.CardView>-->
+                    <!--   </LinearLayout>
+                   </android.support.v7.widget.CardView>-->
 
 
-            <!--02-->
-           <!-- <android.support.v7.widget.CardView style="@style/cardView">
+                    <!--02-->
+                    <!-- <android.support.v7.widget.CardView style="@style/cardView">
 
-                <LinearLayout style="@style/linerlayout_view">
--->
+                         <LinearLayout style="@style/linerlayout_view">
+         -->
 
 
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:paddingTop="5dp"
                         android:layout_marginStart="30dp"
                         android:layout_marginEnd="30dp"
-                        android:background="@android:color/darker_gray"/>
+                        android:background="@android:color/darker_gray"
+                        android:paddingTop="5dp" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -113,9 +116,9 @@
 
                         <TextView
                             style="@style/textViewstartAlignGravity"
-                            android:layout_marginBottom="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:layout_weight="3"
                             android:text="@string/rs02" />
 
@@ -130,13 +133,13 @@
                                 style="@style/textInput"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginRight="2dp"
+                                android:gravity="center"
                                 android:hint="@string/numberhint"
                                 android:inputType="number"
-                                android:layout_marginTop="8dp"
                                 android:maxLength="4"
-                                android:layout_marginRight="2dp"
-                                android:layout_marginLeft="2dp"
-                                android:gravity="center"
                                 android:text='@{rs0299.checked ?  "":rs02.getText.toString }'
                                 android:visibility='@{rs0299.checked ? View.GONE : View.VISIBLE }' />
 
@@ -144,28 +147,29 @@
                                 android:id="@+id/rs0299"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/msing"
-                                android:layout_marginRight="3dp"
                                 android:layout_gravity="center"
+                                android:layout_marginRight="3dp"
                                 android:gravity="center"
+                                android:text="@string/msing"
                                 android:textColor="@color/gray"
                                 android:textSize="16sp" />
                         </LinearLayout>
                     </LinearLayout>
-             <!--   </LinearLayout>
-            </android.support.v7.widget.CardView>
+                    <!--   </LinearLayout>
+                   </android.support.v7.widget.CardView>
 
-            &lt;!&ndash;03&ndash;&gt;
-            <android.support.v7.widget.CardView style="@style/cardView">
+                   &lt;!&ndash;03&ndash;&gt;
+                   <android.support.v7.widget.CardView style="@style/cardView">
 
-                <LinearLayout style="@style/linerlayout_view">-->
+                       <LinearLayout style="@style/linerlayout_view">-->
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:paddingTop="5dp"
                         android:layout_marginStart="30dp"
                         android:layout_marginEnd="30dp"
-                        android:background="@android:color/darker_gray"/>
+                        android:background="@android:color/darker_gray"
+                        android:paddingTop="5dp" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -173,9 +177,9 @@
 
                         <TextView
                             style="@style/textViewstartAlignGravity"
-                            android:layout_marginBottom="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:layout_weight="3"
                             android:text="@string/rs03" />
 
@@ -190,13 +194,13 @@
                                 style="@style/textInput"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginRight="2dp"
+                                android:gravity="center"
                                 android:hint="@string/numberhint"
                                 android:inputType="number"
-                                android:layout_marginTop="8dp"
                                 android:maxLength="4"
-                                android:layout_marginRight="2dp"
-                                android:layout_marginLeft="2dp"
-                                android:gravity="center"
                                 android:text='@{rs0399.checked ?  "":rs03.getText.toString }'
                                 android:visibility='@{rs0399.checked ? View.GONE : View.VISIBLE }' />
 
@@ -204,28 +208,29 @@
                                 android:id="@+id/rs0399"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/msing"
-                                android:layout_marginRight="3dp"
                                 android:layout_gravity="center"
+                                android:layout_marginRight="3dp"
                                 android:gravity="center"
+                                android:text="@string/msing"
                                 android:textColor="@color/gray"
                                 android:textSize="16sp" />
                         </LinearLayout>
                     </LinearLayout>
-         <!--       </LinearLayout>
-            </android.support.v7.widget.CardView>
--->
-            <!--04-->
-         <!--   <android.support.v7.widget.CardView style="@style/cardView">
+                    <!--       </LinearLayout>
+                       </android.support.v7.widget.CardView>
+           -->
+                    <!--04-->
+                    <!--   <android.support.v7.widget.CardView style="@style/cardView">
 
-                <LinearLayout style="@style/linerlayout_view">-->
+                           <LinearLayout style="@style/linerlayout_view">-->
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:paddingTop="5dp"
                         android:layout_marginStart="30dp"
                         android:layout_marginEnd="30dp"
-                        android:background="@android:color/darker_gray"/>
+                        android:background="@android:color/darker_gray"
+                        android:paddingTop="5dp" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -233,9 +238,9 @@
 
                         <TextView
                             style="@style/textViewstartAlignGravity"
-                            android:layout_marginBottom="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:layout_weight="3"
                             android:text="@string/rs04" />
 
@@ -250,13 +255,13 @@
                                 style="@style/textInput"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginRight="2dp"
+                                android:gravity="center"
                                 android:hint="@string/numberhint"
                                 android:inputType="number"
-                                android:layout_marginTop="8dp"
                                 android:maxLength="4"
-                                android:layout_marginRight="2dp"
-                                android:layout_marginLeft="2dp"
-                                android:gravity="center"
                                 android:text='@{rs0499.checked ?  "":rs04.getText.toString }'
                                 android:visibility='@{rs0499.checked ? View.GONE : View.VISIBLE }' />
 
@@ -264,28 +269,29 @@
                                 android:id="@+id/rs0499"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/msing"
-                                android:layout_marginRight="3dp"
                                 android:layout_gravity="center"
+                                android:layout_marginRight="3dp"
                                 android:gravity="center"
+                                android:text="@string/msing"
                                 android:textColor="@color/gray"
                                 android:textSize="16sp" />
                         </LinearLayout>
                     </LinearLayout>
-        <!--        </LinearLayout>
-            </android.support.v7.widget.CardView>-->
+                    <!--        </LinearLayout>
+                        </android.support.v7.widget.CardView>-->
 
-            <!--05-->
-          <!--  <android.support.v7.widget.CardView style="@style/cardView">
+                    <!--05-->
+                    <!--  <android.support.v7.widget.CardView style="@style/cardView">
 
-                <LinearLayout style="@style/linerlayout_view">-->
+                          <LinearLayout style="@style/linerlayout_view">-->
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:paddingTop="5dp"
                         android:layout_marginStart="30dp"
                         android:layout_marginEnd="30dp"
-                        android:background="@android:color/darker_gray"/>
+                        android:background="@android:color/darker_gray"
+                        android:paddingTop="5dp" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -293,9 +299,9 @@
 
                         <TextView
                             style="@style/textViewstartAlignGravity"
-                            android:layout_marginBottom="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:layout_weight="3"
                             android:text="@string/rs05" />
 
@@ -310,13 +316,13 @@
                                 style="@style/textInput"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginRight="2dp"
+                                android:gravity="center"
                                 android:hint="@string/numberhint"
                                 android:inputType="number"
-                                android:layout_marginTop="8dp"
                                 android:maxLength="4"
-                                android:layout_marginRight="2dp"
-                                android:layout_marginLeft="2dp"
-                                android:gravity="center"
                                 android:text='@{rs0599.checked ?  "":rs05.getText.toString }'
                                 android:visibility='@{rs0599.checked ? View.GONE : View.VISIBLE }' />
 
@@ -324,10 +330,10 @@
                                 android:id="@+id/rs0599"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/msing"
-                                android:layout_marginRight="3dp"
                                 android:layout_gravity="center"
+                                android:layout_marginRight="3dp"
                                 android:gravity="center"
+                                android:text="@string/msing"
                                 android:textColor="@color/gray"
                                 android:textSize="16sp" />
                         </LinearLayout>
@@ -340,11 +346,14 @@
                 style="@style/textViewCenterGravity"
                 android:text="@string/rshint02" />
             <!--06-->
-            <android.support.v7.widget.CardView style="@style/cardView"
-                android:layout_marginTop="@null"
+            <android.support.v7.widget.CardView
+                style="@style/cardView"
                 android:layout_marginLeft="3dp"
+                android:layout_marginTop="@null"
                 android:layout_marginRight="3dp">
-                <LinearLayout style="@style/linerlayout_view"
+
+                <LinearLayout
+                    style="@style/linerlayout_view"
                     android:paddingRight="5dp">
 
                     <LinearLayout
@@ -354,9 +363,9 @@
 
                         <TextView
                             style="@style/textViewstartAlignGravity"
-                            android:layout_marginBottom="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:layout_weight="3"
                             android:text="@string/rs06" />
 
@@ -371,13 +380,13 @@
                                 style="@style/textInput"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginRight="2dp"
+                                android:gravity="center"
                                 android:hint="@string/numberhint"
                                 android:inputType="number"
-                                android:layout_marginTop="8dp"
                                 android:maxLength="4"
-                                android:layout_marginRight="2dp"
-                                android:layout_marginLeft="2dp"
-                                android:gravity="center"
                                 android:text='@{rs0699.checked ?  "":rs05.getText.toString }'
                                 android:visibility='@{rs0699.checked ? View.GONE : View.VISIBLE }' />
 
@@ -385,29 +394,30 @@
                                 android:id="@+id/rs0699"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/msing"
-                                android:layout_marginRight="3dp"
                                 android:layout_gravity="center"
+                                android:layout_marginRight="3dp"
                                 android:gravity="center"
+                                android:text="@string/msing"
                                 android:textColor="@color/gray"
                                 android:textSize="16sp" />
                         </LinearLayout>
                     </LinearLayout>
-           <!--     </LinearLayout>
-            </android.support.v7.widget.CardView>-->
+                    <!--     </LinearLayout>
+                     </android.support.v7.widget.CardView>-->
 
-            <!--07-->
-            <!--<android.support.v7.widget.CardView style="@style/cardView">
+                    <!--07-->
+                    <!--<android.support.v7.widget.CardView style="@style/cardView">
 
-                <LinearLayout style="@style/linerlayout_view">
--->
+                        <LinearLayout style="@style/linerlayout_view">
+        -->
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:paddingTop="5dp"
                         android:layout_marginStart="30dp"
                         android:layout_marginEnd="30dp"
-                        android:background="@android:color/darker_gray"/>
+                        android:background="@android:color/darker_gray"
+                        android:paddingTop="5dp" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -415,9 +425,9 @@
 
                         <TextView
                             style="@style/textViewstartAlignGravity"
-                            android:layout_marginBottom="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:layout_weight="3"
                             android:text="@string/rs07" />
 
@@ -432,13 +442,13 @@
                                 style="@style/textInput"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginRight="2dp"
+                                android:gravity="center"
                                 android:hint="@string/numberhint"
                                 android:inputType="number"
-                                android:layout_marginTop="8dp"
                                 android:maxLength="4"
-                                android:layout_marginRight="2dp"
-                                android:layout_marginLeft="2dp"
-                                android:gravity="center"
                                 android:text='@{rs0799.checked ?  "":rs07.getText.toString }'
                                 android:visibility='@{rs0799.checked ? View.GONE : View.VISIBLE }' />
 
@@ -446,28 +456,29 @@
                                 android:id="@+id/rs0799"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/msing"
-                                android:layout_marginRight="3dp"
                                 android:layout_gravity="center"
+                                android:layout_marginRight="3dp"
                                 android:gravity="center"
+                                android:text="@string/msing"
                                 android:textColor="@color/gray"
                                 android:textSize="16sp" />
                         </LinearLayout>
                     </LinearLayout>
-            <!--    </LinearLayout>
-            </android.support.v7.widget.CardView>-->
+                    <!--    </LinearLayout>
+                    </android.support.v7.widget.CardView>-->
 
-            <!--08-->
-          <!--  <android.support.v7.widget.CardView style="@style/cardView">
+                    <!--08-->
+                    <!--  <android.support.v7.widget.CardView style="@style/cardView">
 
-                <LinearLayout style="@style/linerlayout_view">-->
+                          <LinearLayout style="@style/linerlayout_view">-->
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:paddingTop="5dp"
                         android:layout_marginStart="30dp"
                         android:layout_marginEnd="30dp"
-                        android:background="@android:color/darker_gray"/>
+                        android:background="@android:color/darker_gray"
+                        android:paddingTop="5dp" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -475,9 +486,9 @@
 
                         <TextView
                             style="@style/textViewstartAlignGravity"
-                            android:layout_marginBottom="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:layout_weight="3"
                             android:text="@string/rs08" />
 
@@ -492,13 +503,13 @@
                                 style="@style/textInput"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginRight="2dp"
+                                android:gravity="center"
                                 android:hint="@string/numberhint"
                                 android:inputType="number"
-                                android:layout_marginTop="8dp"
                                 android:maxLength="4"
-                                android:layout_marginRight="2dp"
-                                android:layout_marginLeft="2dp"
-                                android:gravity="center"
                                 android:text='@{rs0899.checked ?  "":rs08.getText.toString }'
                                 android:visibility='@{rs0899.checked ? View.GONE : View.VISIBLE }' />
 
@@ -506,27 +517,28 @@
                                 android:id="@+id/rs0899"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/msing"
-                                android:layout_marginRight="3dp"
                                 android:layout_gravity="center"
+                                android:layout_marginRight="3dp"
                                 android:gravity="center"
+                                android:text="@string/msing"
                                 android:textColor="@color/gray"
                                 android:textSize="16sp" />
                         </LinearLayout>
                     </LinearLayout>
-          <!--      </LinearLayout>
-            </android.support.v7.widget.CardView>-->
-            <!--09-->
-          <!--  <android.support.v7.widget.CardView style="@style/cardView">
+                    <!--      </LinearLayout>
+                      </android.support.v7.widget.CardView>-->
+                    <!--09-->
+                    <!--  <android.support.v7.widget.CardView style="@style/cardView">
 
-                <LinearLayout style="@style/linerlayout_view">-->
+                          <LinearLayout style="@style/linerlayout_view">-->
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:paddingTop="5dp"
                         android:layout_marginStart="30dp"
                         android:layout_marginEnd="30dp"
-                        android:background="@android:color/darker_gray"/>
+                        android:background="@android:color/darker_gray"
+                        android:paddingTop="5dp" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -534,9 +546,9 @@
 
                         <TextView
                             style="@style/textViewstartAlignGravity"
-                            android:layout_marginBottom="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:layout_weight="3"
                             android:text="@string/rs09" />
 
@@ -551,13 +563,13 @@
                                 style="@style/textInput"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginRight="2dp"
+                                android:gravity="center"
                                 android:hint="@string/numberhint"
                                 android:inputType="number"
-                                android:layout_marginTop="8dp"
                                 android:maxLength="4"
-                                android:layout_marginRight="2dp"
-                                android:layout_marginLeft="2dp"
-                                android:gravity="center"
                                 android:text='@{rs0999.checked ?  "":rs09.getText.toString }'
                                 android:visibility='@{rs0999.checked ? View.GONE : View.VISIBLE }' />
 
@@ -565,10 +577,10 @@
                                 android:id="@+id/rs0999"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/msing"
-                                android:layout_marginRight="3dp"
                                 android:layout_gravity="center"
+                                android:layout_marginRight="3dp"
                                 android:gravity="center"
+                                android:text="@string/msing"
                                 android:textColor="@color/gray"
                                 android:textSize="16sp" />
                         </LinearLayout>
@@ -577,17 +589,18 @@
             </android.support.v7.widget.CardView>
 
 
-
             <TextView
                 style="@style/textViewCenterGravity"
                 android:text="@string/rshint03" />
             <!--10-->
-            <android.support.v7.widget.CardView style="@style/cardView"
-                android:layout_marginTop="@null"
+            <android.support.v7.widget.CardView
+                style="@style/cardView"
                 android:layout_marginLeft="3dp"
+                android:layout_marginTop="@null"
                 android:layout_marginRight="3dp">
 
-                <LinearLayout style="@style/linerlayout_view"
+                <LinearLayout
+                    style="@style/linerlayout_view"
                     android:paddingRight="5dp">
 
                     <LinearLayout
@@ -597,9 +610,9 @@
 
                         <TextView
                             style="@style/textViewstartAlignGravity"
-                            android:layout_marginBottom="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:layout_weight="3"
                             android:text="@string/rs10" />
 
@@ -614,13 +627,13 @@
                                 style="@style/textInput"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginRight="2dp"
+                                android:gravity="center"
                                 android:hint="@string/numberhint"
                                 android:inputType="number"
-                                android:layout_marginTop="8dp"
                                 android:maxLength="4"
-                                android:layout_marginRight="2dp"
-                                android:layout_marginLeft="2dp"
-                                android:gravity="center"
                                 android:text='@{rs1099.checked ?  "":rs10.getText.toString }'
                                 android:visibility='@{rs1099.checked ? View.GONE : View.VISIBLE }' />
 
@@ -628,27 +641,28 @@
                                 android:id="@+id/rs1099"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/msing"
-                                android:layout_marginRight="3dp"
                                 android:layout_gravity="center"
+                                android:layout_marginRight="3dp"
                                 android:gravity="center"
+                                android:text="@string/msing"
                                 android:textColor="@color/gray"
                                 android:textSize="16sp" />
                         </LinearLayout>
                     </LinearLayout>
-              <!--  </LinearLayout>
-            </android.support.v7.widget.CardView>-->
-            <!--11-->
-           <!-- <android.support.v7.widget.CardView style="@style/cardView">
+                    <!--  </LinearLayout>
+                  </android.support.v7.widget.CardView>-->
+                    <!--11-->
+                    <!-- <android.support.v7.widget.CardView style="@style/cardView">
 
-                <LinearLayout style="@style/linerlayout_view">-->
+                         <LinearLayout style="@style/linerlayout_view">-->
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:paddingTop="5dp"
                         android:layout_marginStart="30dp"
                         android:layout_marginEnd="30dp"
-                        android:background="@android:color/darker_gray"/>
+                        android:background="@android:color/darker_gray"
+                        android:paddingTop="5dp" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -656,9 +670,9 @@
 
                         <TextView
                             style="@style/textViewstartAlignGravity"
-                            android:layout_marginBottom="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:layout_weight="3"
                             android:text="@string/rs11" />
 
@@ -673,13 +687,13 @@
                                 style="@style/textInput"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginRight="2dp"
+                                android:gravity="center"
                                 android:hint="@string/numberhint"
                                 android:inputType="number"
-                                android:layout_marginTop="8dp"
                                 android:maxLength="4"
-                                android:layout_marginRight="2dp"
-                                android:layout_marginLeft="2dp"
-                                android:gravity="center"
                                 android:text='@{rs1199.checked ?  "":rs11.getText.toString }'
                                 android:visibility='@{rs1199.checked ? View.GONE : View.VISIBLE }' />
 
@@ -687,28 +701,29 @@
                                 android:id="@+id/rs1199"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/msing"
-                                android:layout_marginRight="3dp"
                                 android:layout_gravity="center"
+                                android:layout_marginRight="3dp"
                                 android:gravity="center"
+                                android:text="@string/msing"
                                 android:textColor="@color/gray"
                                 android:textSize="16sp" />
                         </LinearLayout>
                     </LinearLayout>
-               <!-- </LinearLayout>
-            </android.support.v7.widget.CardView>-->
-            <!--12-->
-         <!--   <android.support.v7.widget.CardView style="@style/cardView">
+                    <!-- </LinearLayout>
+                 </android.support.v7.widget.CardView>-->
+                    <!--12-->
+                    <!--   <android.support.v7.widget.CardView style="@style/cardView">
 
-                <LinearLayout style="@style/linerlayout_view">
--->
+                           <LinearLayout style="@style/linerlayout_view">
+           -->
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:paddingTop="5dp"
                         android:layout_marginStart="30dp"
                         android:layout_marginEnd="30dp"
-                        android:background="@android:color/darker_gray"/>
+                        android:background="@android:color/darker_gray"
+                        android:paddingTop="5dp" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -716,9 +731,9 @@
 
                         <TextView
                             style="@style/textViewstartAlignGravity"
-                            android:layout_marginBottom="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:layout_weight="3"
                             android:text="@string/rs12" />
 
@@ -733,13 +748,13 @@
                                 style="@style/textInput"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginRight="2dp"
+                                android:gravity="center"
                                 android:hint="@string/numberhint"
                                 android:inputType="number"
-                                android:layout_marginTop="8dp"
                                 android:maxLength="4"
-                                android:layout_marginRight="2dp"
-                                android:layout_marginLeft="2dp"
-                                android:gravity="center"
                                 android:text='@{rs1299.checked ?  "":rs12.getText.toString }'
                                 android:visibility='@{rs1299.checked ? View.GONE : View.VISIBLE }' />
 
@@ -747,28 +762,29 @@
                                 android:id="@+id/rs1299"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/msing"
-                                android:layout_marginRight="3dp"
                                 android:layout_gravity="center"
+                                android:layout_marginRight="3dp"
                                 android:gravity="center"
+                                android:text="@string/msing"
                                 android:textColor="@color/gray"
                                 android:textSize="16sp" />
                         </LinearLayout>
                     </LinearLayout>
-            <!--    </LinearLayout>
-            </android.support.v7.widget.CardView>-->
-            <!--13-->
-          <!--  <android.support.v7.widget.CardView style="@style/cardView">
+                    <!--    </LinearLayout>
+                    </android.support.v7.widget.CardView>-->
+                    <!--13-->
+                    <!--  <android.support.v7.widget.CardView style="@style/cardView">
 
-                <LinearLayout style="@style/linerlayout_view">
--->
+                          <LinearLayout style="@style/linerlayout_view">
+          -->
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:paddingTop="5dp"
                         android:layout_marginStart="30dp"
                         android:layout_marginEnd="30dp"
-                        android:background="@android:color/darker_gray"/>
+                        android:background="@android:color/darker_gray"
+                        android:paddingTop="5dp" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -776,9 +792,9 @@
 
                         <TextView
                             style="@style/textViewstartAlignGravity"
-                            android:layout_marginBottom="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:layout_weight="3"
                             android:text="@string/rs13" />
 
@@ -793,13 +809,13 @@
                                 style="@style/textInput"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginRight="2dp"
+                                android:gravity="center"
                                 android:hint="@string/numberhint"
                                 android:inputType="number"
-                                android:layout_marginTop="8dp"
                                 android:maxLength="4"
-                                android:layout_marginRight="2dp"
-                                android:layout_marginLeft="2dp"
-                                android:gravity="center"
                                 android:text='@{rs1399.checked ?  "":rs13.getText.toString }'
                                 android:visibility='@{rs1399.checked ? View.GONE : View.VISIBLE }' />
 
@@ -807,27 +823,28 @@
                                 android:id="@+id/rs1399"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/msing"
-                                android:layout_marginRight="3dp"
                                 android:layout_gravity="center"
+                                android:layout_marginRight="3dp"
                                 android:gravity="center"
+                                android:text="@string/msing"
                                 android:textColor="@color/gray"
                                 android:textSize="16sp" />
                         </LinearLayout>
                     </LinearLayout>
-             <!--   </LinearLayout>
-            </android.support.v7.widget.CardView>-->
-            <!--14-->
-          <!--  <android.support.v7.widget.CardView style="@style/cardView">
+                    <!--   </LinearLayout>
+                   </android.support.v7.widget.CardView>-->
+                    <!--14-->
+                    <!--  <android.support.v7.widget.CardView style="@style/cardView">
 
-                <LinearLayout style="@style/linerlayout_view">-->
+                          <LinearLayout style="@style/linerlayout_view">-->
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:paddingTop="5dp"
                         android:layout_marginStart="30dp"
                         android:layout_marginEnd="30dp"
-                        android:background="@android:color/darker_gray"/>
+                        android:background="@android:color/darker_gray"
+                        android:paddingTop="5dp" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -835,9 +852,9 @@
 
                         <TextView
                             style="@style/textViewstartAlignGravity"
-                            android:layout_marginBottom="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:layout_weight="3"
                             android:text="@string/rs14" />
 
@@ -852,13 +869,13 @@
                                 style="@style/textInput"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginRight="2dp"
+                                android:gravity="center"
                                 android:hint="@string/numberhint"
                                 android:inputType="number"
-                                android:layout_marginTop="8dp"
                                 android:maxLength="4"
-                                android:layout_marginRight="2dp"
-                                android:layout_marginLeft="2dp"
-                                android:gravity="center"
                                 android:text='@{rs1499.checked ?  "":rs14.getText.toString }'
                                 android:visibility='@{rs1499.checked ? View.GONE : View.VISIBLE }' />
 
@@ -866,27 +883,28 @@
                                 android:id="@+id/rs1499"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/msing"
-                                android:layout_marginRight="3dp"
                                 android:layout_gravity="center"
+                                android:layout_marginRight="3dp"
                                 android:gravity="center"
+                                android:text="@string/msing"
                                 android:textColor="@color/gray"
                                 android:textSize="16sp" />
                         </LinearLayout>
                     </LinearLayout>
-              <!--  </LinearLayout>
-            </android.support.v7.widget.CardView>-->
-            <!--15-->
-            <!--<android.support.v7.widget.CardView style="@style/cardView">-->
+                    <!--  </LinearLayout>
+                  </android.support.v7.widget.CardView>-->
+                    <!--15-->
+                    <!--<android.support.v7.widget.CardView style="@style/cardView">-->
 
-                <!--<LinearLayout style="@style/linerlayout_view">-->
+                    <!--<LinearLayout style="@style/linerlayout_view">-->
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:paddingTop="5dp"
                         android:layout_marginStart="30dp"
                         android:layout_marginEnd="30dp"
-                        android:background="@android:color/darker_gray"/>
+                        android:background="@android:color/darker_gray"
+                        android:paddingTop="5dp" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -894,9 +912,9 @@
 
                         <TextView
                             style="@style/textViewstartAlignGravity"
-                            android:layout_marginBottom="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:layout_weight="3"
                             android:text="@string/rs15" />
 
@@ -911,13 +929,13 @@
                                 style="@style/textInput"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginRight="2dp"
+                                android:gravity="center"
                                 android:hint="@string/numberhint"
                                 android:inputType="number"
-                                android:layout_marginTop="8dp"
                                 android:maxLength="4"
-                                android:layout_marginRight="2dp"
-                                android:layout_marginLeft="2dp"
-                                android:gravity="center"
                                 android:text='@{rs1599.checked ?  "":rs15.getText.toString }'
                                 android:visibility='@{rs1599.checked ? View.GONE : View.VISIBLE }' />
 
@@ -925,27 +943,28 @@
                                 android:id="@+id/rs1599"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/msing"
-                                android:layout_marginRight="3dp"
                                 android:layout_gravity="center"
+                                android:layout_marginRight="3dp"
                                 android:gravity="center"
+                                android:text="@string/msing"
                                 android:textColor="@color/gray"
                                 android:textSize="16sp" />
                         </LinearLayout>
                     </LinearLayout>
-                <!--</LinearLayout>-->
-            <!--</android.support.v7.widget.CardView>-->
-            <!--16-->
-            <!--<android.support.v7.widget.CardView style="@style/cardView">-->
+                    <!--</LinearLayout>-->
+                    <!--</android.support.v7.widget.CardView>-->
+                    <!--16-->
+                    <!--<android.support.v7.widget.CardView style="@style/cardView">-->
 
-                <!--<LinearLayout style="@style/linerlayout_view">-->
+                    <!--<LinearLayout style="@style/linerlayout_view">-->
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:paddingTop="5dp"
                         android:layout_marginStart="30dp"
                         android:layout_marginEnd="30dp"
-                        android:background="@android:color/darker_gray"/>
+                        android:background="@android:color/darker_gray"
+                        android:paddingTop="5dp" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -953,9 +972,9 @@
 
                         <TextView
                             style="@style/textViewstartAlignGravity"
-                            android:layout_marginBottom="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:layout_weight="3"
                             android:text="@string/rs16" />
 
@@ -970,13 +989,13 @@
                                 style="@style/textInput"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginRight="2dp"
+                                android:gravity="center"
                                 android:hint="@string/numberhint"
                                 android:inputType="number"
-                                android:layout_marginTop="8dp"
                                 android:maxLength="4"
-                                android:layout_marginRight="2dp"
-                                android:layout_marginLeft="2dp"
-                                android:gravity="center"
                                 android:text='@{rs1699.checked ?  "":rs16.getText.toString }'
                                 android:visibility='@{rs1699.checked ? View.GONE : View.VISIBLE }' />
 
@@ -984,27 +1003,28 @@
                                 android:id="@+id/rs1699"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/msing"
-                                android:layout_marginRight="3dp"
                                 android:layout_gravity="center"
+                                android:layout_marginRight="3dp"
                                 android:gravity="center"
+                                android:text="@string/msing"
                                 android:textColor="@color/gray"
                                 android:textSize="16sp" />
                         </LinearLayout>
                     </LinearLayout>
-                <!--</LinearLayout>-->
-            <!--</android.support.v7.widget.CardView>-->
-            <!--17-->
-            <!--<android.support.v7.widget.CardView style="@style/cardView">-->
+                    <!--</LinearLayout>-->
+                    <!--</android.support.v7.widget.CardView>-->
+                    <!--17-->
+                    <!--<android.support.v7.widget.CardView style="@style/cardView">-->
 
-                <!--<LinearLayout style="@style/linerlayout_view">-->
+                    <!--<LinearLayout style="@style/linerlayout_view">-->
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:paddingTop="5dp"
                         android:layout_marginStart="30dp"
                         android:layout_marginEnd="30dp"
-                        android:background="@android:color/darker_gray"/>
+                        android:background="@android:color/darker_gray"
+                        android:paddingTop="5dp" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -1012,9 +1032,9 @@
 
                         <TextView
                             style="@style/textViewstartAlignGravity"
-                            android:layout_marginBottom="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:layout_weight="3"
                             android:text="@string/rs17" />
 
@@ -1029,13 +1049,13 @@
                                 style="@style/textInput"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginRight="2dp"
+                                android:gravity="center"
                                 android:hint="@string/numberhint"
                                 android:inputType="number"
-                                android:layout_marginTop="8dp"
                                 android:maxLength="4"
-                                android:layout_marginRight="2dp"
-                                android:layout_marginLeft="2dp"
-                                android:gravity="center"
                                 android:text='@{rs1799.checked ?  "":rs17.getText.toString }'
                                 android:visibility='@{rs1799.checked ? View.GONE : View.VISIBLE }' />
 
@@ -1043,28 +1063,29 @@
                                 android:id="@+id/rs1799"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/msing"
-                                android:layout_marginRight="3dp"
                                 android:layout_gravity="center"
+                                android:layout_marginRight="3dp"
                                 android:gravity="center"
+                                android:text="@string/msing"
                                 android:textColor="@color/gray"
                                 android:textSize="16sp" />
                         </LinearLayout>
                     </LinearLayout>
-                <!--</LinearLayout>-->
-            <!--</android.support.v7.widget.CardView>-->
+                    <!--</LinearLayout>-->
+                    <!--</android.support.v7.widget.CardView>-->
 
-            <!--18-->
-          <!--  <android.support.v7.widget.CardView style="@style/cardView">
+                    <!--18-->
+                    <!--  <android.support.v7.widget.CardView style="@style/cardView">
 
-                <LinearLayout style="@style/linerlayout_view">-->
+                          <LinearLayout style="@style/linerlayout_view">-->
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:paddingTop="5dp"
                         android:layout_marginStart="30dp"
                         android:layout_marginEnd="30dp"
-                        android:background="@android:color/darker_gray"/>
+                        android:background="@android:color/darker_gray"
+                        android:paddingTop="5dp" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -1072,9 +1093,9 @@
 
                         <TextView
                             style="@style/textViewstartAlignGravity"
-                            android:layout_marginBottom="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:layout_weight="3"
                             android:text="@string/rs18" />
 
@@ -1089,13 +1110,13 @@
                                 style="@style/textInput"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginRight="2dp"
+                                android:gravity="center"
                                 android:hint="@string/numberhint"
                                 android:inputType="number"
-                                android:layout_marginTop="8dp"
                                 android:maxLength="4"
-                                android:layout_marginRight="2dp"
-                                android:layout_marginLeft="2dp"
-                                android:gravity="center"
                                 android:text='@{rs1899.checked ?  "":rs18.getText.toString }'
                                 android:visibility='@{rs1899.checked ? View.GONE : View.VISIBLE }' />
 
@@ -1103,27 +1124,28 @@
                                 android:id="@+id/rs1899"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/msing"
-                                android:layout_marginRight="3dp"
                                 android:layout_gravity="center"
+                                android:layout_marginRight="3dp"
                                 android:gravity="center"
+                                android:text="@string/msing"
                                 android:textColor="@color/gray"
                                 android:textSize="16sp" />
                         </LinearLayout>
                     </LinearLayout>
-                <!--</LinearLayout>-->
-            <!--</android.support.v7.widget.CardView>-->
-            <!--19-->
-            <!--<android.support.v7.widget.CardView style="@style/cardView">-->
+                    <!--</LinearLayout>-->
+                    <!--</android.support.v7.widget.CardView>-->
+                    <!--19-->
+                    <!--<android.support.v7.widget.CardView style="@style/cardView">-->
 
-                <!--<LinearLayout style="@style/linerlayout_view">-->
+                    <!--<LinearLayout style="@style/linerlayout_view">-->
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:paddingTop="5dp"
                         android:layout_marginStart="30dp"
                         android:layout_marginEnd="30dp"
-                        android:background="@android:color/darker_gray"/>
+                        android:background="@android:color/darker_gray"
+                        android:paddingTop="5dp" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -1131,9 +1153,9 @@
 
                         <TextView
                             style="@style/textViewstartAlignGravity"
-                            android:layout_marginBottom="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:layout_weight="3"
                             android:text="@string/rs19" />
 
@@ -1148,13 +1170,13 @@
                                 style="@style/textInput"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginRight="2dp"
+                                android:gravity="center"
                                 android:hint="@string/numberhint"
                                 android:inputType="number"
-                                android:layout_marginTop="8dp"
                                 android:maxLength="4"
-                                android:layout_marginRight="2dp"
-                                android:layout_marginLeft="2dp"
-                                android:gravity="center"
                                 android:text='@{rs1999.checked ?  "":rs19.getText.toString }'
                                 android:visibility='@{rs1999.checked ? View.GONE : View.VISIBLE }' />
 
@@ -1162,28 +1184,29 @@
                                 android:id="@+id/rs1999"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/msing"
-                                android:layout_marginRight="3dp"
                                 android:layout_gravity="center"
+                                android:layout_marginRight="3dp"
                                 android:gravity="center"
+                                android:text="@string/msing"
                                 android:textColor="@color/gray"
                                 android:textSize="16sp" />
                         </LinearLayout>
                     </LinearLayout>
-                <!--</LinearLayout>-->
-            <!--</android.support.v7.widget.CardView>-->
-            <!--20-->
-           <!-- <android.support.v7.widget.CardView style="@style/cardView">
+                    <!--</LinearLayout>-->
+                    <!--</android.support.v7.widget.CardView>-->
+                    <!--20-->
+                    <!-- <android.support.v7.widget.CardView style="@style/cardView">
 
-                <LinearLayout style="@style/linerlayout_view">
--->
+                         <LinearLayout style="@style/linerlayout_view">
+         -->
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:paddingTop="5dp"
                         android:layout_marginStart="30dp"
                         android:layout_marginEnd="30dp"
-                        android:background="@android:color/darker_gray"/>
+                        android:background="@android:color/darker_gray"
+                        android:paddingTop="5dp" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -1191,9 +1214,9 @@
 
                         <TextView
                             style="@style/textViewstartAlignGravity"
-                            android:layout_marginBottom="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:layout_weight="3"
                             android:text="@string/rs20" />
 
@@ -1208,13 +1231,13 @@
                                 style="@style/textInput"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginRight="2dp"
+                                android:gravity="center"
                                 android:hint="@string/numberhint"
                                 android:inputType="number"
-                                android:layout_marginTop="8dp"
                                 android:maxLength="4"
-                                android:layout_marginRight="2dp"
-                                android:layout_marginLeft="2dp"
-                                android:gravity="center"
                                 android:text='@{rs2099.checked ?  "":rs20.getText.toString }'
                                 android:visibility='@{rs2099.checked ? View.GONE : View.VISIBLE }' />
 
@@ -1222,27 +1245,28 @@
                                 android:id="@+id/rs2099"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/msing"
-                                android:layout_marginRight="3dp"
                                 android:layout_gravity="center"
+                                android:layout_marginRight="3dp"
                                 android:gravity="center"
+                                android:text="@string/msing"
                                 android:textColor="@color/gray"
                                 android:textSize="16sp" />
                         </LinearLayout>
                     </LinearLayout>
-                <!--</LinearLayout>-->
-            <!--</android.support.v7.widget.CardView>-->
-            <!--21-->
-            <!--<android.support.v7.widget.CardView style="@style/cardView">
+                    <!--</LinearLayout>-->
+                    <!--</android.support.v7.widget.CardView>-->
+                    <!--21-->
+                    <!--<android.support.v7.widget.CardView style="@style/cardView">
 
-                <LinearLayout style="@style/linerlayout_view">-->
+                        <LinearLayout style="@style/linerlayout_view">-->
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:paddingTop="5dp"
                         android:layout_marginStart="30dp"
                         android:layout_marginEnd="30dp"
-                        android:background="@android:color/darker_gray"/>
+                        android:background="@android:color/darker_gray"
+                        android:paddingTop="5dp" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -1250,9 +1274,9 @@
 
                         <TextView
                             style="@style/textViewstartAlignGravity"
-                            android:layout_marginBottom="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:layout_weight="3"
                             android:text="@string/rs21" />
 
@@ -1267,13 +1291,13 @@
                                 style="@style/textInput"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginRight="2dp"
+                                android:gravity="center"
                                 android:hint="@string/numberhint"
                                 android:inputType="number"
-                                android:layout_marginTop="8dp"
                                 android:maxLength="4"
-                                android:layout_marginRight="2dp"
-                                android:layout_marginLeft="2dp"
-                                android:gravity="center"
                                 android:text='@{rs2199.checked ?  "":rs21.getText.toString }'
                                 android:visibility='@{rs2199.checked ? View.GONE : View.VISIBLE }' />
 
@@ -1281,27 +1305,28 @@
                                 android:id="@+id/rs2199"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/msing"
-                                android:layout_marginRight="3dp"
                                 android:layout_gravity="center"
+                                android:layout_marginRight="3dp"
                                 android:gravity="center"
+                                android:text="@string/msing"
                                 android:textColor="@color/gray"
                                 android:textSize="16sp" />
                         </LinearLayout>
                     </LinearLayout>
-              <!--  </LinearLayout>
-            </android.support.v7.widget.CardView>-->
-            <!--22-->
-            <!--<android.support.v7.widget.CardView style="@style/cardView">
+                    <!--  </LinearLayout>
+                  </android.support.v7.widget.CardView>-->
+                    <!--22-->
+                    <!--<android.support.v7.widget.CardView style="@style/cardView">
 
-                <LinearLayout style="@style/linerlayout_view">-->
+                        <LinearLayout style="@style/linerlayout_view">-->
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:paddingTop="5dp"
                         android:layout_marginStart="30dp"
                         android:layout_marginEnd="30dp"
-                        android:background="@android:color/darker_gray"/>
+                        android:background="@android:color/darker_gray"
+                        android:paddingTop="5dp" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -1309,9 +1334,9 @@
 
                         <TextView
                             style="@style/textViewstartAlignGravity"
-                            android:layout_marginBottom="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:layout_weight="3"
                             android:text="@string/rs22" />
 
@@ -1326,55 +1351,56 @@
                                 style="@style/textInput"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginRight="2dp"
+                                android:gravity="center"
                                 android:hint="@string/numberhint"
                                 android:inputType="number"
-                                android:layout_marginTop="8dp"
-                                android:maxLength="4"
-                                android:layout_marginRight="2dp"
-                                android:layout_marginLeft="2dp"
-                                android:gravity="center"
-                                 />
+                                android:maxLength="4" />
 
                             <CheckBox
                                 android:id="@+id/rs2299"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/msing"
-                                android:layout_marginRight="3dp"
                                 android:layout_gravity="center"
+                                android:layout_marginRight="3dp"
                                 android:gravity="center"
+                                android:text="@string/msing"
                                 android:textColor="@color/gray"
                                 android:textSize="16sp"
 
                                 />
+
                             <CheckBox
                                 android:id="@+id/rs2297"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/na"
-                                android:layout_marginRight="3dp"
                                 android:layout_gravity="center"
+                                android:layout_marginRight="3dp"
                                 android:gravity="center"
+                                android:text="@string/na"
                                 android:textColor="@color/gray"
                                 android:textSize="16sp"
 
-                               />
+                                />
                         </LinearLayout>
                     </LinearLayout>
-               <!-- </LinearLayout>
-            </android.support.v7.widget.CardView>-->
-            <!--23-->
-           <!-- <android.support.v7.widget.CardView style="@style/cardView">
+                    <!-- </LinearLayout>
+                 </android.support.v7.widget.CardView>-->
+                    <!--23-->
+                    <!-- <android.support.v7.widget.CardView style="@style/cardView">
 
-                <LinearLayout style="@style/linerlayout_view">
--->
+                         <LinearLayout style="@style/linerlayout_view">
+         -->
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:paddingTop="5dp"
                         android:layout_marginStart="30dp"
                         android:layout_marginEnd="30dp"
-                        android:background="@android:color/darker_gray"/>
+                        android:background="@android:color/darker_gray"
+                        android:paddingTop="5dp" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -1382,9 +1408,9 @@
 
                         <TextView
                             style="@style/textViewstartAlignGravity"
-                            android:layout_marginBottom="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:layout_weight="3"
                             android:text="@string/rs23" />
 
@@ -1399,13 +1425,13 @@
                                 style="@style/textInput"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginRight="2dp"
+                                android:gravity="center"
                                 android:hint="@string/numberhint"
                                 android:inputType="number"
-                                android:layout_marginTop="8dp"
                                 android:maxLength="4"
-                                android:layout_marginRight="2dp"
-                                android:layout_marginLeft="2dp"
-                                android:gravity="center"
                                 android:text='@{rs2399.checked ?  "":rs23.getText.toString }'
                                 android:visibility='@{rs2399.checked ? View.GONE : View.VISIBLE }' />
 
@@ -1413,28 +1439,29 @@
                                 android:id="@+id/rs2399"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/msing"
-                                android:layout_marginRight="3dp"
                                 android:layout_gravity="center"
+                                android:layout_marginRight="3dp"
                                 android:gravity="center"
+                                android:text="@string/msing"
                                 android:textColor="@color/gray"
                                 android:textSize="16sp" />
                         </LinearLayout>
                     </LinearLayout>
-            <!--    </LinearLayout>
-            </android.support.v7.widget.CardView>-->
-            <!--24-->
-          <!--  <android.support.v7.widget.CardView style="@style/cardView">
+                    <!--    </LinearLayout>
+                    </android.support.v7.widget.CardView>-->
+                    <!--24-->
+                    <!--  <android.support.v7.widget.CardView style="@style/cardView">
 
-                <LinearLayout style="@style/linerlayout_view">
--->
+                          <LinearLayout style="@style/linerlayout_view">
+          -->
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:paddingTop="5dp"
                         android:layout_marginStart="30dp"
                         android:layout_marginEnd="30dp"
-                        android:background="@android:color/darker_gray"/>
+                        android:background="@android:color/darker_gray"
+                        android:paddingTop="5dp" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -1442,9 +1469,9 @@
 
                         <TextView
                             style="@style/textViewstartAlignGravity"
-                            android:layout_marginBottom="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:layout_weight="3"
                             android:text="@string/rs24" />
 
@@ -1459,13 +1486,13 @@
                                 style="@style/textInput"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginRight="2dp"
+                                android:gravity="center"
                                 android:hint="@string/numberhint"
                                 android:inputType="number"
-                                android:layout_marginTop="8dp"
                                 android:maxLength="4"
-                                android:layout_marginRight="2dp"
-                                android:layout_marginLeft="2dp"
-                                android:gravity="center"
                                 android:text='@{rs2499.checked ?  "":rs24.getText.toString }'
                                 android:visibility='@{rs2499.checked ? View.GONE : View.VISIBLE }' />
 
@@ -1473,27 +1500,28 @@
                                 android:id="@+id/rs2499"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/msing"
-                                android:layout_marginRight="3dp"
                                 android:layout_gravity="center"
+                                android:layout_marginRight="3dp"
                                 android:gravity="center"
+                                android:text="@string/msing"
                                 android:textColor="@color/gray"
                                 android:textSize="16sp" />
                         </LinearLayout>
                     </LinearLayout>
-            <!--    </LinearLayout>
-            </android.support.v7.widget.CardView>-->
-            <!--25-->
-          <!--  <android.support.v7.widget.CardView style="@style/cardView">
+                    <!--    </LinearLayout>
+                    </android.support.v7.widget.CardView>-->
+                    <!--25-->
+                    <!--  <android.support.v7.widget.CardView style="@style/cardView">
 
-                <LinearLayout style="@style/linerlayout_view">-->
+                          <LinearLayout style="@style/linerlayout_view">-->
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:paddingTop="5dp"
                         android:layout_marginStart="30dp"
                         android:layout_marginEnd="30dp"
-                        android:background="@android:color/darker_gray"/>
+                        android:background="@android:color/darker_gray"
+                        android:paddingTop="5dp" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -1501,9 +1529,9 @@
 
                         <TextView
                             style="@style/textViewstartAlignGravity"
-                            android:layout_marginBottom="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:layout_weight="3"
                             android:text="@string/rs25" />
 
@@ -1518,13 +1546,13 @@
                                 style="@style/textInput"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginRight="2dp"
+                                android:gravity="center"
                                 android:hint="@string/numberhint"
                                 android:inputType="number"
-                                android:layout_marginTop="8dp"
                                 android:maxLength="4"
-                                android:layout_marginRight="2dp"
-                                android:layout_marginLeft="2dp"
-                                android:gravity="center"
                                 android:text='@{rs2599.checked ?  "":rs25.getText.toString }'
                                 android:visibility='@{rs2599.checked ? View.GONE : View.VISIBLE }' />
 
@@ -1532,28 +1560,29 @@
                                 android:id="@+id/rs2599"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/msing"
-                                android:layout_marginRight="3dp"
                                 android:layout_gravity="center"
+                                android:layout_marginRight="3dp"
                                 android:gravity="center"
+                                android:text="@string/msing"
                                 android:textColor="@color/gray"
                                 android:textSize="16sp" />
                         </LinearLayout>
                     </LinearLayout>
-             <!--   </LinearLayout>
-            </android.support.v7.widget.CardView>-->
-            <!--26-->
-           <!-- <android.support.v7.widget.CardView style="@style/cardView">
+                    <!--   </LinearLayout>
+                   </android.support.v7.widget.CardView>-->
+                    <!--26-->
+                    <!-- <android.support.v7.widget.CardView style="@style/cardView">
 
-                <LinearLayout style="@style/linerlayout_view">
--->
+                         <LinearLayout style="@style/linerlayout_view">
+         -->
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:paddingTop="5dp"
                         android:layout_marginStart="30dp"
                         android:layout_marginEnd="30dp"
-                        android:background="@android:color/darker_gray"/>
+                        android:background="@android:color/darker_gray"
+                        android:paddingTop="5dp" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -1561,9 +1590,9 @@
 
                         <TextView
                             style="@style/textViewstartAlignGravity"
-                            android:layout_marginBottom="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:layout_weight="3"
                             android:text="@string/rs26" />
 
@@ -1578,13 +1607,13 @@
                                 style="@style/textInput"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginRight="2dp"
+                                android:gravity="center"
                                 android:hint="@string/numberhint"
                                 android:inputType="number"
-                                android:layout_marginTop="8dp"
                                 android:maxLength="4"
-                                android:layout_marginRight="2dp"
-                                android:layout_marginLeft="2dp"
-                                android:gravity="center"
                                 android:text='@{rs2699.checked ?  "":rs26.getText.toString }'
                                 android:visibility='@{rs2699.checked ? View.GONE : View.VISIBLE }' />
 
@@ -1592,27 +1621,28 @@
                                 android:id="@+id/rs2699"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/msing"
-                                android:layout_marginRight="3dp"
                                 android:layout_gravity="center"
+                                android:layout_marginRight="3dp"
                                 android:gravity="center"
+                                android:text="@string/msing"
                                 android:textColor="@color/gray"
                                 android:textSize="16sp" />
                         </LinearLayout>
                     </LinearLayout>
-               <!-- </LinearLayout>
-            </android.support.v7.widget.CardView>-->
-            <!--27-->
-        <!--    <android.support.v7.widget.CardView style="@style/cardView">
+                    <!-- </LinearLayout>
+                 </android.support.v7.widget.CardView>-->
+                    <!--27-->
+                    <!--    <android.support.v7.widget.CardView style="@style/cardView">
 
-                <LinearLayout style="@style/linerlayout_view">-->
+                            <LinearLayout style="@style/linerlayout_view">-->
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:paddingTop="5dp"
                         android:layout_marginStart="30dp"
                         android:layout_marginEnd="30dp"
-                        android:background="@android:color/darker_gray"/>
+                        android:background="@android:color/darker_gray"
+                        android:paddingTop="5dp" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -1620,9 +1650,9 @@
 
                         <TextView
                             style="@style/textViewstartAlignGravity"
-                            android:layout_marginBottom="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:layout_weight="3"
                             android:text="@string/rs27" />
 
@@ -1637,13 +1667,13 @@
                                 style="@style/textInput"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginRight="2dp"
+                                android:gravity="center"
                                 android:hint="@string/numberhint"
                                 android:inputType="number"
-                                android:layout_marginTop="8dp"
                                 android:maxLength="4"
-                                android:layout_marginRight="2dp"
-                                android:layout_marginLeft="2dp"
-                                android:gravity="center"
                                 android:text='@{rs2799.checked ?  "":rs27.getText.toString }'
                                 android:visibility='@{rs2799.checked ? View.GONE : View.VISIBLE }' />
 
@@ -1651,10 +1681,10 @@
                                 android:id="@+id/rs2799"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/msing"
-                                android:layout_marginRight="3dp"
                                 android:layout_gravity="center"
+                                android:layout_marginRight="3dp"
                                 android:gravity="center"
+                                android:text="@string/msing"
                                 android:textColor="@color/gray"
                                 android:textSize="16sp" />
                         </LinearLayout>
@@ -1667,12 +1697,14 @@
                 style="@style/textViewCenterGravity"
                 android:text="@string/rshint04" />
             <!--28-->
-            <android.support.v7.widget.CardView style="@style/cardView"
-                android:layout_marginTop="@null"
+            <android.support.v7.widget.CardView
+                style="@style/cardView"
                 android:layout_marginLeft="3dp"
+                android:layout_marginTop="@null"
                 android:layout_marginRight="3dp">
 
-                <LinearLayout style="@style/linerlayout_view"
+                <LinearLayout
+                    style="@style/linerlayout_view"
                     android:paddingRight="5dp">
 
                     <LinearLayout
@@ -1682,9 +1714,9 @@
 
                         <TextView
                             style="@style/textViewstartAlignGravity"
-                            android:layout_marginBottom="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:layout_weight="3"
                             android:text="@string/rs28" />
 
@@ -1699,13 +1731,13 @@
                                 style="@style/textInput"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginRight="2dp"
+                                android:gravity="center"
                                 android:hint="@string/numberhint"
                                 android:inputType="number"
-                                android:layout_marginTop="8dp"
                                 android:maxLength="4"
-                                android:layout_marginRight="2dp"
-                                android:layout_marginLeft="2dp"
-                                android:gravity="center"
                                 android:text='@{rs2899.checked ?  "":rs28.getText.toString }'
                                 android:visibility='@{rs2899.checked ? View.GONE : View.VISIBLE }' />
 
@@ -1713,27 +1745,28 @@
                                 android:id="@+id/rs2899"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/msing"
-                                android:layout_marginRight="3dp"
                                 android:layout_gravity="center"
+                                android:layout_marginRight="3dp"
                                 android:gravity="center"
+                                android:text="@string/msing"
                                 android:textColor="@color/gray"
                                 android:textSize="16sp" />
                         </LinearLayout>
                     </LinearLayout>
-             <!--   </LinearLayout>
-            </android.support.v7.widget.CardView>-->
-            <!--29-->
-            <!--<android.support.v7.widget.CardView style="@style/cardView">
+                    <!--   </LinearLayout>
+                   </android.support.v7.widget.CardView>-->
+                    <!--29-->
+                    <!--<android.support.v7.widget.CardView style="@style/cardView">
 
-                <LinearLayout style="@style/linerlayout_view">-->
+                        <LinearLayout style="@style/linerlayout_view">-->
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:paddingTop="5dp"
                         android:layout_marginStart="30dp"
                         android:layout_marginEnd="30dp"
-                        android:background="@android:color/darker_gray"/>
+                        android:background="@android:color/darker_gray"
+                        android:paddingTop="5dp" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -1741,9 +1774,9 @@
 
                         <TextView
                             style="@style/textViewstartAlignGravity"
-                            android:layout_marginBottom="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:layout_weight="3"
                             android:text="@string/rs29" />
 
@@ -1758,13 +1791,13 @@
                                 style="@style/textInput"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginRight="2dp"
+                                android:gravity="center"
                                 android:hint="@string/numberhint"
                                 android:inputType="number"
-                                android:layout_marginTop="8dp"
                                 android:maxLength="4"
-                                android:layout_marginRight="2dp"
-                                android:layout_marginLeft="2dp"
-                                android:gravity="center"
                                 android:text='@{rs2999.checked ?  "":rs29.getText.toString }'
                                 android:visibility='@{rs2999.checked ? View.GONE : View.VISIBLE }' />
 
@@ -1772,27 +1805,28 @@
                                 android:id="@+id/rs2999"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/msing"
-                                android:layout_marginRight="3dp"
                                 android:layout_gravity="center"
+                                android:layout_marginRight="3dp"
                                 android:gravity="center"
+                                android:text="@string/msing"
                                 android:textColor="@color/gray"
                                 android:textSize="16sp" />
                         </LinearLayout>
                     </LinearLayout>
-              <!--  </LinearLayout>
-            </android.support.v7.widget.CardView>-->
-            <!--30-->
-          <!--  <android.support.v7.widget.CardView style="@style/cardView">
+                    <!--  </LinearLayout>
+                  </android.support.v7.widget.CardView>-->
+                    <!--30-->
+                    <!--  <android.support.v7.widget.CardView style="@style/cardView">
 
-                <LinearLayout style="@style/linerlayout_view">-->
+                          <LinearLayout style="@style/linerlayout_view">-->
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:paddingTop="5dp"
                         android:layout_marginStart="30dp"
                         android:layout_marginEnd="30dp"
-                        android:background="@android:color/darker_gray"/>
+                        android:background="@android:color/darker_gray"
+                        android:paddingTop="5dp" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -1800,9 +1834,9 @@
 
                         <TextView
                             style="@style/textViewstartAlignGravity"
-                            android:layout_marginBottom="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:layout_weight="3"
                             android:text="@string/rs30" />
 
@@ -1817,13 +1851,13 @@
                                 style="@style/textInput"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginRight="2dp"
+                                android:gravity="center"
                                 android:hint="@string/numberhint"
                                 android:inputType="number"
-                                android:layout_marginTop="8dp"
                                 android:maxLength="4"
-                                android:layout_marginRight="2dp"
-                                android:layout_marginLeft="2dp"
-                                android:gravity="center"
                                 android:text='@{rs3099.checked ?  "":rs30.getText.toString }'
                                 android:visibility='@{rs3099.checked ? View.GONE : View.VISIBLE }' />
 
@@ -1831,10 +1865,10 @@
                                 android:id="@+id/rs3099"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/msing"
-                                android:layout_marginRight="3dp"
                                 android:layout_gravity="center"
+                                android:layout_marginRight="3dp"
                                 android:gravity="center"
+                                android:text="@string/msing"
                                 android:textColor="@color/gray"
                                 android:textSize="16sp" />
                         </LinearLayout>
@@ -1847,12 +1881,14 @@
                 style="@style/textViewCenterGravity"
                 android:text="@string/rshint05" />
             <!--31-->
-            <android.support.v7.widget.CardView style="@style/cardView"
-                android:layout_marginTop="@null"
+            <android.support.v7.widget.CardView
+                style="@style/cardView"
                 android:layout_marginLeft="3dp"
+                android:layout_marginTop="@null"
                 android:layout_marginRight="3dp">
 
-                <LinearLayout style="@style/linerlayout_view"
+                <LinearLayout
+                    style="@style/linerlayout_view"
                     android:paddingRight="5dp">
 
                     <LinearLayout
@@ -1862,9 +1898,9 @@
 
                         <TextView
                             style="@style/textViewstartAlignGravity"
-                            android:layout_marginBottom="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:layout_weight="3"
                             android:text="@string/rs31" />
 
@@ -1879,13 +1915,13 @@
                                 style="@style/textInput"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginRight="2dp"
+                                android:gravity="center"
                                 android:hint="@string/numberhint"
                                 android:inputType="number"
-                                android:layout_marginTop="8dp"
                                 android:maxLength="4"
-                                android:layout_marginRight="2dp"
-                                android:layout_marginLeft="2dp"
-                                android:gravity="center"
                                 android:text='@{rs3199.checked ?  "":rs31.getText.toString }'
                                 android:visibility='@{rs3199.checked ? View.GONE : View.VISIBLE }' />
 
@@ -1893,27 +1929,28 @@
                                 android:id="@+id/rs3199"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/msing"
-                                android:layout_marginRight="3dp"
                                 android:layout_gravity="center"
+                                android:layout_marginRight="3dp"
                                 android:gravity="center"
+                                android:text="@string/msing"
                                 android:textColor="@color/gray"
                                 android:textSize="16sp" />
                         </LinearLayout>
                     </LinearLayout>
-                <!--</LinearLayout>
-            </android.support.v7.widget.CardView>-->
-            <!--32-->
-          <!--  <android.support.v7.widget.CardView style="@style/cardView">
+                    <!--</LinearLayout>
+                </android.support.v7.widget.CardView>-->
+                    <!--32-->
+                    <!--  <android.support.v7.widget.CardView style="@style/cardView">
 
-                <LinearLayout style="@style/linerlayout_view">-->
+                          <LinearLayout style="@style/linerlayout_view">-->
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:paddingTop="5dp"
                         android:layout_marginStart="30dp"
                         android:layout_marginEnd="30dp"
-                        android:background="@android:color/darker_gray"/>
+                        android:background="@android:color/darker_gray"
+                        android:paddingTop="5dp" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -1921,9 +1958,9 @@
 
                         <TextView
                             style="@style/textViewstartAlignGravity"
-                            android:layout_marginBottom="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:layout_weight="3"
                             android:text="@string/rs32" />
 
@@ -1938,13 +1975,13 @@
                                 style="@style/textInput"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginRight="2dp"
+                                android:gravity="center"
                                 android:hint="@string/numberhint"
                                 android:inputType="number"
-                                android:layout_marginTop="8dp"
                                 android:maxLength="4"
-                                android:layout_marginRight="2dp"
-                                android:layout_marginLeft="2dp"
-                                android:gravity="center"
                                 android:text='@{rs3299.checked ?  "":rs32.getText.toString }'
                                 android:visibility='@{rs3299.checked ? View.GONE : View.VISIBLE }' />
 
@@ -1952,27 +1989,28 @@
                                 android:id="@+id/rs3299"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/msing"
-                                android:layout_marginRight="3dp"
                                 android:layout_gravity="center"
+                                android:layout_marginRight="3dp"
                                 android:gravity="center"
+                                android:text="@string/msing"
                                 android:textColor="@color/gray"
                                 android:textSize="16sp" />
                         </LinearLayout>
                     </LinearLayout>
-               <!-- </LinearLayout>
-            </android.support.v7.widget.CardView>-->
-            <!--33-->
-          <!--  <android.support.v7.widget.CardView style="@style/cardView">
+                    <!-- </LinearLayout>
+                 </android.support.v7.widget.CardView>-->
+                    <!--33-->
+                    <!--  <android.support.v7.widget.CardView style="@style/cardView">
 
-                <LinearLayout style="@style/linerlayout_view">-->
+                          <LinearLayout style="@style/linerlayout_view">-->
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:paddingTop="5dp"
                         android:layout_marginStart="30dp"
                         android:layout_marginEnd="30dp"
-                        android:background="@android:color/darker_gray"/>
+                        android:background="@android:color/darker_gray"
+                        android:paddingTop="5dp" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -1980,9 +2018,9 @@
 
                         <TextView
                             style="@style/textViewstartAlignGravity"
-                            android:layout_marginBottom="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:layout_weight="3"
                             android:text="@string/rs33" />
 
@@ -1997,13 +2035,13 @@
                                 style="@style/textInput"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginRight="2dp"
+                                android:gravity="center"
                                 android:hint="@string/numberhint"
                                 android:inputType="number"
-                                android:layout_marginTop="8dp"
                                 android:maxLength="4"
-                                android:layout_marginRight="2dp"
-                                android:layout_marginLeft="2dp"
-                                android:gravity="center"
                                 android:text='@{rs3399.checked ?  "":rs33.getText.toString }'
                                 android:visibility='@{rs3399.checked ? View.GONE : View.VISIBLE }' />
 
@@ -2011,28 +2049,29 @@
                                 android:id="@+id/rs3399"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/msing"
-                                android:layout_marginRight="3dp"
                                 android:layout_gravity="center"
+                                android:layout_marginRight="3dp"
                                 android:gravity="center"
+                                android:text="@string/msing"
                                 android:textColor="@color/gray"
                                 android:textSize="16sp" />
                         </LinearLayout>
                     </LinearLayout>
-             <!--   </LinearLayout>
-            </android.support.v7.widget.CardView>-->
-            <!--34-->
-            <!--<android.support.v7.widget.CardView style="@style/cardView">
+                    <!--   </LinearLayout>
+                   </android.support.v7.widget.CardView>-->
+                    <!--34-->
+                    <!--<android.support.v7.widget.CardView style="@style/cardView">
 
-                <LinearLayout style="@style/linerlayout_view">
--->
+                        <LinearLayout style="@style/linerlayout_view">
+        -->
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:paddingTop="5dp"
                         android:layout_marginStart="30dp"
                         android:layout_marginEnd="30dp"
-                        android:background="@android:color/darker_gray"/>
+                        android:background="@android:color/darker_gray"
+                        android:paddingTop="5dp" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -2040,9 +2079,9 @@
 
                         <TextView
                             style="@style/textViewstartAlignGravity"
-                            android:layout_marginBottom="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:layout_weight="3"
                             android:text="@string/rs34" />
 
@@ -2057,13 +2096,13 @@
                                 style="@style/textInput"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginRight="2dp"
+                                android:gravity="center"
                                 android:hint="@string/numberhint"
                                 android:inputType="number"
-                                android:layout_marginTop="8dp"
                                 android:maxLength="4"
-                                android:layout_marginRight="2dp"
-                                android:layout_marginLeft="2dp"
-                                android:gravity="center"
                                 android:text='@{rs3499.checked ?  "":rs34.getText.toString }'
                                 android:visibility='@{rs3499.checked ? View.GONE : View.VISIBLE }' />
 
@@ -2071,27 +2110,28 @@
                                 android:id="@+id/rs3499"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/msing"
-                                android:layout_marginRight="3dp"
                                 android:layout_gravity="center"
+                                android:layout_marginRight="3dp"
                                 android:gravity="center"
+                                android:text="@string/msing"
                                 android:textColor="@color/gray"
                                 android:textSize="16sp" />
                         </LinearLayout>
                     </LinearLayout>
-              <!--  </LinearLayout>
-            </android.support.v7.widget.CardView>-->
-            <!--35-->
-            <!--<android.support.v7.widget.CardView style="@style/cardView">
+                    <!--  </LinearLayout>
+                  </android.support.v7.widget.CardView>-->
+                    <!--35-->
+                    <!--<android.support.v7.widget.CardView style="@style/cardView">
 
-                <LinearLayout style="@style/linerlayout_view">-->
+                        <LinearLayout style="@style/linerlayout_view">-->
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:paddingTop="5dp"
                         android:layout_marginStart="30dp"
                         android:layout_marginEnd="30dp"
-                        android:background="@android:color/darker_gray"/>
+                        android:background="@android:color/darker_gray"
+                        android:paddingTop="5dp" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -2099,9 +2139,9 @@
 
                         <TextView
                             style="@style/textViewstartAlignGravity"
-                            android:layout_marginBottom="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:layout_weight="3"
                             android:text="@string/rs35" />
 
@@ -2116,51 +2156,52 @@
                                 style="@style/textInput"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginRight="2dp"
+                                android:gravity="center"
                                 android:hint="@string/numberhint"
                                 android:inputType="number"
-                                android:layout_marginTop="8dp"
-                                android:maxLength="4"
-                                android:layout_marginRight="2dp"
-                                android:layout_marginLeft="2dp"
-                                android:gravity="center"
-                               />
+                                android:maxLength="4" />
 
                             <CheckBox
                                 android:id="@+id/rs3599"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/msing"
-                                android:layout_marginRight="3dp"
                                 android:layout_gravity="center"
+                                android:layout_marginRight="3dp"
                                 android:gravity="center"
+                                android:text="@string/msing"
                                 android:textColor="@color/gray"
                                 android:textSize="16sp" />
+
                             <CheckBox
                                 android:id="@+id/rs3597"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/na"
-                                android:layout_marginRight="3dp"
                                 android:layout_gravity="center"
+                                android:layout_marginRight="3dp"
                                 android:gravity="center"
+                                android:text="@string/na"
                                 android:textColor="@color/gray"
                                 android:textSize="16sp" />
                         </LinearLayout>
                     </LinearLayout>
-               <!-- </LinearLayout>
-            </android.support.v7.widget.CardView>-->
+                    <!-- </LinearLayout>
+                 </android.support.v7.widget.CardView>-->
 
-            <!--36-->
-           <!-- <android.support.v7.widget.CardView style="@style/cardView">
+                    <!--36-->
+                    <!-- <android.support.v7.widget.CardView style="@style/cardView">
 
-                <LinearLayout style="@style/linerlayout_view">-->
+                         <LinearLayout style="@style/linerlayout_view">-->
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:paddingTop="5dp"
                         android:layout_marginStart="30dp"
                         android:layout_marginEnd="30dp"
-                        android:background="@android:color/darker_gray"/>
+                        android:background="@android:color/darker_gray"
+                        android:paddingTop="5dp" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -2168,9 +2209,9 @@
 
                         <TextView
                             style="@style/textViewstartAlignGravity"
-                            android:layout_marginBottom="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:layout_weight="3"
                             android:text="@string/rs36" />
 
@@ -2185,33 +2226,33 @@
                                 style="@style/textInput"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginRight="2dp"
+                                android:gravity="center"
                                 android:hint="@string/numberhint"
                                 android:inputType="number"
-                                android:layout_marginTop="8dp"
-                                android:maxLength="4"
-                                android:layout_marginRight="2dp"
-                                android:layout_marginLeft="2dp"
-                                android:gravity="center"
-                               />
+                                android:maxLength="4" />
 
                             <CheckBox
                                 android:id="@+id/rs3699"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/msing"
-                                android:layout_marginRight="3dp"
                                 android:layout_gravity="center"
+                                android:layout_marginRight="3dp"
                                 android:gravity="center"
+                                android:text="@string/msing"
                                 android:textColor="@color/gray"
                                 android:textSize="16sp" />
+
                             <CheckBox
                                 android:id="@+id/rs3697"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/na"
-                                android:layout_marginRight="3dp"
                                 android:layout_gravity="center"
+                                android:layout_marginRight="3dp"
                                 android:gravity="center"
+                                android:text="@string/na"
                                 android:textColor="@color/gray"
                                 android:textSize="16sp" />
                         </LinearLayout>
@@ -2220,17 +2261,18 @@
             </android.support.v7.widget.CardView>
 
 
-
             <TextView
                 style="@style/textViewCenterGravity"
                 android:text="@string/rshint06" />
             <!--37-->
-            <android.support.v7.widget.CardView style="@style/cardView"
-                android:layout_marginTop="@null"
+            <android.support.v7.widget.CardView
+                style="@style/cardView"
                 android:layout_marginLeft="3dp"
+                android:layout_marginTop="@null"
                 android:layout_marginRight="3dp">
 
-                <LinearLayout style="@style/linerlayout_view"
+                <LinearLayout
+                    style="@style/linerlayout_view"
                     android:paddingRight="5dp">
 
                     <LinearLayout
@@ -2240,9 +2282,9 @@
 
                         <TextView
                             style="@style/textViewstartAlignGravity"
-                            android:layout_marginBottom="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:layout_weight="3"
                             android:text="@string/rs37" />
 
@@ -2257,51 +2299,52 @@
                                 style="@style/textInput"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginRight="2dp"
+                                android:gravity="center"
                                 android:hint="@string/numberhint"
                                 android:inputType="number"
-                                android:layout_marginTop="8dp"
-                                android:maxLength="4"
-                                android:layout_marginRight="2dp"
-                                android:layout_marginLeft="2dp"
-                                android:gravity="center"
-                                 />
+                                android:maxLength="4" />
 
                             <CheckBox
                                 android:id="@+id/rs3799"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/msing"
-                                android:layout_marginRight="3dp"
                                 android:layout_gravity="center"
+                                android:layout_marginRight="3dp"
                                 android:gravity="center"
+                                android:text="@string/msing"
 
                                 android:textColor="@color/gray"
                                 android:textSize="16sp" />
+
                             <CheckBox
                                 android:id="@+id/rs3797"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/na"
-                                android:layout_marginRight="3dp"
                                 android:layout_gravity="center"
+                                android:layout_marginRight="3dp"
                                 android:gravity="center"
+                                android:text="@string/na"
                                 android:textColor="@color/gray"
                                 android:textSize="16sp" />
                         </LinearLayout>
                     </LinearLayout>
-            <!--    </LinearLayout>
-            </android.support.v7.widget.CardView>-->
-            <!--38-->
-            <!--<android.support.v7.widget.CardView style="@style/cardView">-->
+                    <!--    </LinearLayout>
+                    </android.support.v7.widget.CardView>-->
+                    <!--38-->
+                    <!--<android.support.v7.widget.CardView style="@style/cardView">-->
 
-                <!--<LinearLayout style="@style/linerlayout_view">-->
+                    <!--<LinearLayout style="@style/linerlayout_view">-->
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:paddingTop="5dp"
                         android:layout_marginStart="30dp"
                         android:layout_marginEnd="30dp"
-                        android:background="@android:color/darker_gray"/>
+                        android:background="@android:color/darker_gray"
+                        android:paddingTop="5dp" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -2309,9 +2352,9 @@
 
                         <TextView
                             style="@style/textViewstartAlignGravity"
-                            android:layout_marginBottom="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:layout_weight="3"
                             android:text="@string/rs38" />
 
@@ -2326,50 +2369,51 @@
                                 style="@style/textInput"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginRight="2dp"
+                                android:gravity="center"
                                 android:hint="@string/numberhint"
                                 android:inputType="number"
-                                android:layout_marginTop="8dp"
-                                android:maxLength="4"
-                                android:layout_marginRight="2dp"
-                                android:layout_marginLeft="2dp"
-                                android:gravity="center"
-                                />
+                                android:maxLength="4" />
 
                             <CheckBox
                                 android:id="@+id/rs3899"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/msing"
-                                android:layout_marginRight="3dp"
                                 android:layout_gravity="center"
+                                android:layout_marginRight="3dp"
                                 android:gravity="center"
+                                android:text="@string/msing"
                                 android:textColor="@color/gray"
                                 android:textSize="16sp" />
+
                             <CheckBox
                                 android:id="@+id/rs3897"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/na"
-                                android:layout_marginRight="3dp"
                                 android:layout_gravity="center"
+                                android:layout_marginRight="3dp"
                                 android:gravity="center"
+                                android:text="@string/na"
                                 android:textColor="@color/gray"
                                 android:textSize="16sp" />
                         </LinearLayout>
                     </LinearLayout>
-              <!--  </LinearLayout>
-            </android.support.v7.widget.CardView>-->
-            <!--39-->
-          <!--  <android.support.v7.widget.CardView style="@style/cardView">
+                    <!--  </LinearLayout>
+                  </android.support.v7.widget.CardView>-->
+                    <!--39-->
+                    <!--  <android.support.v7.widget.CardView style="@style/cardView">
 
-                <LinearLayout style="@style/linerlayout_view">-->
+                          <LinearLayout style="@style/linerlayout_view">-->
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:paddingTop="5dp"
                         android:layout_marginStart="30dp"
                         android:layout_marginEnd="30dp"
-                        android:background="@android:color/darker_gray"/>
+                        android:background="@android:color/darker_gray"
+                        android:paddingTop="5dp" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -2377,9 +2421,9 @@
 
                         <TextView
                             style="@style/textViewstartAlignGravity"
-                            android:layout_marginBottom="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:layout_weight="3"
                             android:text="@string/rs39" />
 
@@ -2394,51 +2438,52 @@
                                 style="@style/textInput"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginRight="2dp"
+                                android:gravity="center"
                                 android:hint="@string/numberhint"
                                 android:inputType="number"
-                                android:layout_marginTop="8dp"
-                                android:maxLength="4"
-                                android:layout_marginRight="2dp"
-                                android:layout_marginLeft="2dp"
-                                android:gravity="center"
-                            />
+                                android:maxLength="4" />
 
                             <CheckBox
                                 android:id="@+id/rs3999"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/msing"
-                                android:layout_marginRight="3dp"
                                 android:layout_gravity="center"
+                                android:layout_marginRight="3dp"
                                 android:gravity="center"
+                                android:text="@string/msing"
                                 android:textColor="@color/gray"
                                 android:textSize="16sp" />
+
                             <CheckBox
                                 android:id="@+id/rs3997"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/na"
-                                android:layout_marginRight="3dp"
                                 android:layout_gravity="center"
+                                android:layout_marginRight="3dp"
                                 android:gravity="center"
+                                android:text="@string/na"
                                 android:textColor="@color/gray"
                                 android:textSize="16sp" />
                         </LinearLayout>
                     </LinearLayout>
-                <!--</LinearLayout>
-            </android.support.v7.widget.CardView>-->
-            <!--40-->
-           <!-- <android.support.v7.widget.CardView style="@style/cardView">
+                    <!--</LinearLayout>
+                </android.support.v7.widget.CardView>-->
+                    <!--40-->
+                    <!-- <android.support.v7.widget.CardView style="@style/cardView">
 
-                <LinearLayout style="@style/linerlayout_view">
--->
+                         <LinearLayout style="@style/linerlayout_view">
+         -->
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:paddingTop="5dp"
                         android:layout_marginStart="30dp"
                         android:layout_marginEnd="30dp"
-                        android:background="@android:color/darker_gray"/>
+                        android:background="@android:color/darker_gray"
+                        android:paddingTop="5dp" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -2446,9 +2491,9 @@
 
                         <TextView
                             style="@style/textViewstartAlignGravity"
-                            android:layout_marginBottom="10dp"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
                             android:layout_weight="3"
                             android:text="@string/rs40" />
 
@@ -2463,54 +2508,63 @@
                                 style="@style/textInput"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginRight="2dp"
+                                android:gravity="center"
                                 android:hint="@string/numberhint"
                                 android:inputType="number"
-                                android:layout_marginTop="8dp"
-                                android:maxLength="4"
-                                android:layout_marginRight="2dp"
-                                android:layout_marginLeft="2dp"
-                                android:gravity="center"/>
+                                android:maxLength="4" />
 
                             <CheckBox
                                 android:id="@+id/rs4099"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/msing"
-                                android:layout_marginRight="3dp"
                                 android:layout_gravity="center"
+                                android:layout_marginRight="3dp"
                                 android:gravity="center"
+                                android:text="@string/msing"
                                 android:textColor="@color/gray"
                                 android:textSize="16sp" />
+
                             <CheckBox
                                 android:id="@+id/rs4097"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:text="@string/na"
-                                android:layout_marginRight="3dp"
                                 android:layout_gravity="center"
+                                android:layout_marginRight="3dp"
                                 android:gravity="center"
+                                android:text="@string/na"
                                 android:textColor="@color/gray"
                                 android:textSize="16sp" />
+
                         </LinearLayout>
+
                     </LinearLayout>
+
                 </LinearLayout>
+
             </android.support.v7.widget.CardView>
 
 
             <TextView
                 style="@style/textViewCenterGravity"
                 android:text="@string/rsrem" />
-            <android.support.v7.widget.CardView style="@style/cardView"
-                android:layout_marginTop="@null"
+
+            <android.support.v7.widget.CardView
+                style="@style/cardView"
                 android:layout_marginLeft="3dp"
+                android:layout_marginTop="@null"
                 android:layout_marginRight="3dp">
-                <LinearLayout style="@style/linerlayout_view"
+
+                <LinearLayout
+                    style="@style/linerlayout_view"
                     android:paddingRight="5dp">
 
-                  <!--  <TextView
-                        style="@style/textViewstartAlignGravity"
-                        android:layout_width="match_parent"
-                        android:text="@string/rsrem" />-->
+                    <!--  <TextView
+                          style="@style/textViewstartAlignGravity"
+                          android:layout_width="match_parent"
+                          android:text="@string/rsrem" />-->
 
                     <EditText
                         android:id="@+id/rsrem"
@@ -2526,7 +2580,9 @@
                         android:maxLines="8"
                         android:minLines="6"
                         android:scrollbars="vertical" />
+
                 </LinearLayout>
+
             </android.support.v7.widget.CardView>
 
 
@@ -2538,30 +2594,32 @@
                 android:orientation="horizontal"
                 android:paddingTop="32dp">
 
-
-
                 <Button
-                    android:id="@+id/btnEnd"
+                    android:id="@+id/btn_End"
+                    style="@style/buttons"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="4dp"
                     android:layout_weight="1"
+                    android:background="@color/red"
                     android:onClick="@{() -> callback.BtnEnd()}"
                     android:text="@string/endForm"
-                    android:textColor="@android:color/holo_red_light"
-                    android:textSize="24sp"
+                    android:textColor="@color/white"
                     android:textStyle="bold" />
+
                 <Button
-                    android:id="@+id/btnNext"
+                    android:id="@+id/btn_Continue"
+                    style="@style/buttons"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_margin="4dp"
                     android:layout_weight="1"
+                    android:background="#1ed61e"
                     android:onClick="@{() -> callback.BtnContinue()}"
                     android:text="@string/nextSection"
-                    android:textColor="@android:color/holo_green_light"
-                    android:textSize="24sp" />
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
             </LinearLayout>
+
         </LinearLayout>
 
     </ScrollView>

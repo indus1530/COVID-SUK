@@ -9,8 +9,8 @@ import org.json.JSONObject;
 
 import edu.aku.ramshasaeed.mnch.data.AppDatabase;
 
-//@Entity(tableName = AppDatabase.Sub_DBConnection.TABLE_FACILITY_PROVIDER)
-public class Facility_provider {
+@Entity(tableName = AppDatabase.Sub_DBConnection.TABLE_FACILITY_PROVIDER)
+public class FacilityProvider {
 
     @PrimaryKey(autoGenerate = true)
     private int id;
@@ -23,11 +23,8 @@ public class Facility_provider {
     private String hf_name = "";
     private String hf_name_govt = "";
     private String hf_uen_code = "";
-  /*  private String provider_code = "";
-    private String provider_name = "";
-    private String uc_code = "";*/
 
-    public Facility_provider() {
+    public FacilityProvider() {
     }
 
     public int getId() {
@@ -94,14 +91,7 @@ public class Facility_provider {
         this.hf_uen_code = hf_uen_code;
     }
 
-    public Facility_provider Sync(JSONObject jsonObjectCls) throws JSONException {
-       /* "hf_dhis": 999,
-                "hf_district_code": 113,
-                "hf_tehsil": "Khanpur",
-                "hf_uc": "71-B",
-                "hf_name": "Fasiel Hospital",
-                "hf_name_govt": "NULL",
-                "hf_uen_code": 1132222*/
+    public FacilityProvider Sync(JSONObject jsonObjectCls) throws JSONException {
         this.hf_dhis = jsonObjectCls.getString("hf_dhis");
         this.hf_district_code =jsonObjectCls.getString("hf_district_code");
         this.hf_tehsil = jsonObjectCls.getString("hf_tehsil");
@@ -109,7 +99,6 @@ public class Facility_provider {
         this.hf_name = jsonObjectCls.getString("hf_name");
         this.hf_name_govt = jsonObjectCls.getString("hf_name_govt");
         this.hf_uen_code = jsonObjectCls.getString("hf_uen_code");
-
         return this;
     }
 }

@@ -14,7 +14,8 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.edittextpicker.aliazaz.textpicker.TextPicker;
+
+import com.edittextpicker.aliazaz.EditTextPicker;
 
 import java.lang.reflect.Field;
 
@@ -204,20 +205,21 @@ public abstract class validatorClass {
                 }
             } else if (view instanceof EditText) {
 
-                if (view instanceof TextPicker) {
+                if (view instanceof EditTextPicker) {
 
-                    if (((TextPicker) view).getType() == 1) {
-                        if (!((TextPicker) view).isEmptyTextBox()) {
-                            return false;
-                        }
-                    } else {
-                        if (!((TextPicker) view).isRangePickerValidate()) {
-                            return false;
-                        }
+                    if (!((EditTextPicker) view).isEmptyTextBox())
+                        return false;
+
+                    if (!((EditTextPicker) view).isRangeTextValidate())
+                        return false;
+
+                    if (!((EditTextPicker) view).isTextEqualToPattern())
+                        return false;
+
+                } else {
+                    if (!EmptyTextBox(context, (EditText) view, getString(context, getIDComponent(view)))) {
+                        return false;
                     }
-
-                } else if (!EmptyTextBox(context, (EditText) view, getString(context, getIDComponent(view)))) {
-                    return false;
                 }
             } else if (view instanceof LinearLayout) {
                 if (!EmptyCheckingContainer(context, (LinearLayout) view)) {

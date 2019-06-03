@@ -7,7 +7,7 @@ import edu.aku.ramshasaeed.mnch.RMOperations.crudOperations;
 import edu.aku.ramshasaeed.mnch.RMOperations.syncOperations;
 import edu.aku.ramshasaeed.mnch.data.DAO.FormsDAO;
 import edu.aku.ramshasaeed.mnch.data.entities.District;
-import edu.aku.ramshasaeed.mnch.data.entities.Facility_provider;
+import edu.aku.ramshasaeed.mnch.data.entities.FacilityProvider;
 import edu.aku.ramshasaeed.mnch.data.entities.Tehsil;
 import edu.aku.ramshasaeed.mnch.data.entities.UCs;
 import edu.aku.ramshasaeed.mnch.data.entities.Users;
@@ -24,10 +24,10 @@ public abstract class GetSyncFncs {
             JSONArray jsonArray = userlist;
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject jsonObjectUser = jsonArray.getJSONObject(i);
-                String userName = jsonObjectUser.getString("username");
-                String password = jsonObjectUser.getString("password");
 
-                Users users = new Users(userName, password);
+                Users users = new Users();
+                users.Sync(jsonObjectUser);
+
                 new crudOperations(db, users).execute(FormsDAO.class.getName(), "formsDao", "insertUsers").get();
             }
             db.close();
@@ -102,7 +102,7 @@ public abstract class GetSyncFncs {
             for (int i = 0; i < jsonArray.length(); i++) {
                 JSONObject jsonObjectdata = jsonArray.getJSONObject(i);
 
-                Facility_provider facility_provider = new Facility_provider();
+                FacilityProvider facility_provider = new FacilityProvider();
                 facility_provider.Sync(jsonObjectdata);
 
                 new crudOperations(db, facility_provider).execute(FormsDAO.class.getName(), "formsDao", "insertFacilityProvider").get();

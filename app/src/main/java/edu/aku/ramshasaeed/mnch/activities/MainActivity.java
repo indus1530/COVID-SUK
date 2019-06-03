@@ -1,30 +1,41 @@
 package edu.aku.ramshasaeed.mnch.activities;
 
+import android.app.ActivityManager;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.DownloadManager;
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.databinding.DataBindingUtil;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.util.Log;
-import android.view.View;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.text.InputType;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
+import com.google.gson.Gson;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -34,9 +45,11 @@ import java.nio.channels.FileChannel;
 import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 import edu.aku.ramshasaeed.mnch.R;
+import edu.aku.ramshasaeed.mnch.appVersion.VersionAppContract;
 import edu.aku.ramshasaeed.mnch.core.CONSTANTS;
 import edu.aku.ramshasaeed.mnch.core.MainApp;
 import edu.aku.ramshasaeed.mnch.data.AppDatabase;
@@ -50,15 +63,26 @@ import im.dino.dbinspector.activities.DbInspectorActivity;
 
 import static edu.aku.ramshasaeed.mnch.activities.LoginActivity.db;
 
-public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     ActivityMainBinding bi;
     SharedPreferences.Editor editor;
     SharedPreferences sharedPref;
+    AlertDialog.Builder builder;
+    private String rSumText = "";
+    String m_Text = "", preVer = "", newVer = "";
     String DirectoryName;
     private boolean updata = false;
-    String dtToday = new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime());
-    String _dtToday = new SimpleDateFormat("dd-MM-yy").format(new Date().getTime());
+    private Boolean exit = false;
+    String dtToday = new SimpleDateFormat("dd-MM-yyyy HH:mm").format(new Date().getTime());
+    String _dtToday = new SimpleDateFormat("dd-MM-yyyy").format(new Date().getTime());
+
+    static File file;
+    //working on verison control
+    SharedPreferences sharedPrefDownload;
+    SharedPreferences.Editor editorDownload;
+    VersionAppContract versionAppContract;
+    DownloadManager downloadManager;
+    Long refID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +96,7 @@ public class MainActivity extends AppCompatActivity
         toggle.syncState();
         dbBackup();
         displayFormsStatus();
+        loadTagDialog();
 
         bi.navView.setNavigationItemSelectedListener(this);
 
@@ -79,30 +104,20 @@ public class MainActivity extends AppCompatActivity
 
     private void displayFormsStatus() {
         Collection<Forms> todaysForms = null;
-//        Collection<Forms> unsyncedForms = null;
+
         try {
-//            unsyncedForms = (Collection<Forms>) new GetAllDBData(db, GetFncDAO.class.getName(), "getFncDao", "getUnSyncedForms").execute().get();
-            todaysForms = (Collection<Forms>) new GetAllDBData(db, GetFncDAO.class.getName(), "getFncDao", "getTodaysForms").execute("%"+_dtToday+"%").get();
+            todaysForms = (Collection<Forms>) new GetAllDBData(db, GetFncDAO.class.getName(), "getFncDao", "getTodaysForms").execute("%" + _dtToday + "%").get();
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
 
-
-    /*    rSumText += "TODAY'S RECORDS SUMMARY\r\n";
-
-        rSumText += "=======================\r\n";
-        rSumText += "\r\n";
-        rSumText += "Total Forms Today: " + todaysForms.size() + "\r\n";
-        rSumText += "\r\n";*/
         String formID = "", completestatus = "", syncedStatus = "";
         if (todaysForms.size() > 0) {
-//            rSumText += "\tFORMS' LIST: \r\n";
+
             String iStatus;
-//            rSumText += "--------------------------------------------------\r\n";
-//            rSumText += "[ Form_ID ] \t[Form Status] \t[Sync Status]----------\r\n";
-//            rSumText += "--------------------------------------------------\r\n";
+
             for (Forms fc : todaysForms) {
                 if (fc.getIstatus() != null) {
                     switch (fc.getIstatus()) {
@@ -118,16 +133,10 @@ public class MainActivity extends AppCompatActivity
                 } else {
                     iStatus = "\tN/A";
                 }
-                formID = formID + "\n"+fc.getId();
-                completestatus = completestatus + "\n"+iStatus;
-                syncedStatus = syncedStatus + "\n"+(fc.getSynced() == null || fc.getSynced().equals("") ? "Not Synced" : "Synced");
-              /*  rSumText += fc.getId();
+                formID = formID + "\n" + fc.getId();
+                completestatus = completestatus + "\n" + iStatus;
+                syncedStatus = syncedStatus + "\n" + (fc.getSynced() == null || fc.getSynced().equals("") ? "Not Synced" : "Synced");
 
-                rSumText += " " + iStatus + " ";
-
-                rSumText += (fc.getSynced() == null ? "\t\tNot Synced" : "\t\tSynced");
-                rSumText += "\r\n";
-                rSumText += "--------------------------------------------------\r\n";*/
             }
         }
 //        Setting Text in  UI
@@ -135,28 +144,8 @@ public class MainActivity extends AppCompatActivity
         bi.appbarmain.contentmain.completeStatus.setText(completestatus);
         bi.appbarmain.contentmain.syncStatus.setText(syncedStatus);
 
-/*
-        SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);
-       rSumText += "Last Data Download: \t" + syncPref.getString("LastDownSyncServer", "Never Updated");
-        rSumText += "\r\n";
-        rSumText += "Last Data Upload: \t" + syncPref.getString("LastUpSyncServer", "Never Synced");
-        rSumText += "\r\n";
-        rSumText += "\r\n";
-        rSumText += "Unsynced Forms: \t" + unsyncedForms.size();
-        rSumText += "\r\n";
+        settingVersion();
 
-        Log.d(TAG, "onCreate: " + rSumText);
-        mainBinding.recordSummary.setText(rSumText);
-        */
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (bi.drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            bi.drawerLayout.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
     }
 
     @Override
@@ -189,33 +178,16 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_hfa) {
             Toast.makeText(this, "This Form is Under Construction!", Toast.LENGTH_SHORT).show();
+
         } else if (id == R.id.nav_rsd) {
-            finish();
-            Intent i = new Intent(MainActivity.this, RSDInfoActivity.class);
-            i.putExtra(MainApp.FORM_TYPE,MainApp.RSD);
-            startActivity(i);
-        } else if (id == R.id.navQOC ) {
-//            Toast.makeText(this, "This Form is Under Construction!", Toast.LENGTH_SHORT).show();
-            finish();
-
-            //startActivity(new Intent(MainActivity.this, RSDInfoActivity.class));
-            Intent i = new Intent(MainActivity.this, RSDInfoActivity.class);
-            i.putExtra(MainApp.FORM_TYPE,MainApp.QOC);
-            startActivity(i);
-
+            startingActivities(1);
+        } else if (id == R.id.navQOC) {
+            startingActivities(2);
         } else if (id == R.id.nav_dhmt) {
-            finish();
-
-            Intent i = new Intent(MainActivity.this, RSDInfoActivity.class);
-            i.putExtra(MainApp.FORM_TYPE,MainApp.DHMT);
-            startActivity(i);
-
+            startingActivities(3);
         } else if (id == R.id.nav_upload) {
             uploadData();
-
         } else if (id == R.id.nav_download) {
-            //TODO implement
-
             // Require permissions INTERNET & ACCESS_NETWORK_STATE
             ConnectivityManager connMgr = (ConnectivityManager)
                     getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -230,7 +202,7 @@ public class MainActivity extends AppCompatActivity
                 Intent dbmanager = new Intent(getApplicationContext(), DbInspectorActivity.class);
                 startActivity(dbmanager);
             } else {
-                Toast.makeText(this,"You are not allowed to avail this feature!!",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "You are not allowed to avail this feature!!", Toast.LENGTH_SHORT).show();
             }
 
         }
@@ -240,52 +212,41 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+    private void startingActivities(int flag) {
+        if (loadTagDialog()) return;
+        if (settingVersion()) return;
 
-    public class syncData extends AsyncTask<String, String, String> {
+        Intent i = new Intent(MainActivity.this, RSDInfoActivity.class);
+        if (flag == 1)
+            i.putExtra(MainApp.FORM_TYPE, MainApp.RSD);
+        else if (flag == 2)
+            i.putExtra(MainApp.FORM_TYPE, MainApp.QOC);
+        else if (flag == 3)
+            i.putExtra(MainApp.FORM_TYPE, MainApp.DHMT);
 
-        private Context mContext;
+        startActivity(i);
+    }
 
-        public syncData(Context mContext) {
-            this.mContext = mContext;
-        }
+    @Override
+    public void onBackPressed() {
+        if (bi.drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            bi.drawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            if (exit) {
+                finish(); // finish activity
+                startActivity(new Intent(this, LoginActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
+            } else {
+                Toast.makeText(this, "Press Back again to Exit.",
+                        Toast.LENGTH_SHORT).show();
+                exit = true;
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        exit = false;
+                    }
+                }, 3 * 1000);
 
-        @Override
-        protected String doInBackground(String... strings) {
-            runOnUiThread(new Runnable() {
-
-                @Override
-                public void run() {
-
-                    Toast.makeText(MainActivity.this, "Sync Users", Toast.LENGTH_LONG).show();
-                    new GetAllData(mContext, "User", MainApp._HOST_URL + CONSTANTS.URL_USERS).execute();
-                    Toast.makeText(MainActivity.this, "Sync District", Toast.LENGTH_LONG).show();
-                    new GetAllData(mContext, "District", MainApp._HOST_URL + CONSTANTS.URL_DISTRICT).execute();
-                    /*Toast.makeText(MainActivity.this, "Sync Tehsil", Toast.LENGTH_LONG).show();
-                    new GetAllData(mContext, "Tehsil", MainApp._HOST_URL + CONSTANTS.URL_TEHSIL).execute();
-                    Toast.makeText(MainActivity.this, "Sync UCs", Toast.LENGTH_LONG).show();
-                    new GetAllData(mContext, "UCs", MainApp._HOST_URL + CONSTANTS.URL_UCS).execute();*/
-                    /*Toast.makeText(MainActivity.this, "Sync Facility Provider", Toast.LENGTH_LONG).show();
-                    new GetAllData(mContext, "FacilityProvider", MainApp._HOST_URL + CONSTANTS.URL_HEALTH_FACILITY).execute();*/
-                }
-            });
-
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(String s) {
-            new Handler().postDelayed(new Runnable() {
-
-                @Override
-                public void run() {
-
-                    editor.putBoolean("flag", true);
-                    editor.commit();
-
-                    dbBackup();
-
-                }
-            }, 1200);
+            }
         }
     }
 
@@ -296,10 +257,10 @@ public class MainActivity extends AppCompatActivity
 
         if (sharedPref.getBoolean("flag", true)) {
 
-            String dt = sharedPref.getString("dt", new SimpleDateFormat("dd-MM-yy").format(new Date()));
+            String dt = sharedPref.getString("dt", new SimpleDateFormat("dd-MM-yyyy").format(new Date()));
 
-            if (dt != new SimpleDateFormat("dd-MM-yy").format(new Date())) {
-                editor.putString("dt", new SimpleDateFormat("dd-MM-yy").format(new Date()));
+            if (dt != new SimpleDateFormat("dd-MM-yyyy").format(new Date())) {
+                editor.putString("dt", new SimpleDateFormat("dd-MM-yyyy").format(new Date()));
 
                 editor.commit();
             }
@@ -319,25 +280,6 @@ public class MainActivity extends AppCompatActivity
                 if (success) {
 
                     try {
-                        /*File dbFile = new File(this.getDatabasePath(AppDatabase.Sub_DBConnection.DATABASE_NAME).getAbsolutePath());
-                        FileInputStream fis = new FileInputStream(dbFile);
-
-                        String outFileName = DirectoryName + File.separator +
-                                AppDatabase.Sub_DBConnection.DATABASE_NAME + ".db";
-
-                        // Open the empty db as the output stream
-                        OutputStream output = new FileOutputStream(outFileName);
-
-                        // Transfer bytes from the inputfile to the outputfile
-                        byte[] buffer = new byte[1024];
-                        int length;
-                        while ((length = fis.read(buffer)) > 0) {
-                            output.write(buffer, 0, length);
-                        }
-                        // Close the streams
-                        output.flush();
-                        output.close();
-                        fis.close();*/
 
                         String dbFileName = this.getDatabasePath(AppDatabase.Sub_DBConnection.DATABASE_NAME).getAbsolutePath();
                         String outFileName = DirectoryName + File.separator + AppDatabase.Sub_DBConnection.DATABASE_NAME + ".db";
@@ -446,4 +388,233 @@ public class MainActivity extends AppCompatActivity
 
     }
 
+    public class syncData extends AsyncTask<String, String, String> {
+
+        private Context mContext;
+
+        public syncData(Context mContext) {
+            this.mContext = mContext;
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+            runOnUiThread(new Runnable() {
+
+                @Override
+                public void run() {
+
+                    Toast.makeText(MainActivity.this, "Sync Users", Toast.LENGTH_LONG).show();
+                    new GetAllData(mContext, "User", MainApp._HOST_URL + CONSTANTS.URL_USERS).execute();
+                    Toast.makeText(MainActivity.this, "Sync District", Toast.LENGTH_LONG).show();
+                    new GetAllData(mContext, "District", MainApp._HOST_URL + CONSTANTS.URL_DISTRICT).execute();
+                    Toast.makeText(MainActivity.this, "Sync Facility Provider", Toast.LENGTH_LONG).show();
+                    new GetAllData(mContext, "FacilityProvider", MainApp._HOST_URL + CONSTANTS.URL_HEALTH_FACILITY).execute();
+                    /*Toast.makeText(MainActivity.this, "Sync Tehsil", Toast.LENGTH_LONG).show();
+                    new GetAllData(mContext, "Tehsil", MainApp._HOST_URL + CONSTANTS.URL_TEHSIL).execute();
+                    Toast.makeText(MainActivity.this, "Sync UCs", Toast.LENGTH_LONG).show();
+                    new GetAllData(mContext, "UCs", MainApp._HOST_URL + CONSTANTS.URL_UCS).execute();*/
+                }
+            });
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            new Handler().postDelayed(new Runnable() {
+
+                @Override
+                public void run() {
+
+                    editor.putBoolean("flag", true);
+                    editor.commit();
+
+                    dbBackup();
+
+                }
+            }, 1200);
+        }
+    }
+
+    private boolean loadTagDialog() {
+
+        sharedPref = getSharedPreferences("tagName", MODE_PRIVATE);
+        editor = sharedPref.edit();
+        if (!sharedPref.contains("tagName") && sharedPref.getString("tagName", null) == null) {
+
+            builder = new AlertDialog.Builder(MainActivity.this);
+            builder.setTitle("ENTER DEVICE TAG-ID");
+            /*ImageView img = new ImageView(getApplicationContext());
+            img.setPadding(0, 15, 0, 15);
+            builder.setCustomTitle(img);*/
+
+            final EditText input = new EditText(MainActivity.this);
+            input.setInputType(InputType.TYPE_CLASS_TEXT);
+            builder.setView(input);
+
+            builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    m_Text = input.getText().toString();
+                    if (!m_Text.equals("")) {
+                        editor.putString("tagName", m_Text);
+                        editor.commit();
+                        dialog.dismiss();
+
+                    }
+                }
+            });
+            builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.cancel();
+                }
+            });
+
+            builder.show();
+
+            return true;
+        }
+        return false;
+    }
+
+    boolean settingVersion() {
+        sharedPrefDownload = getSharedPreferences("appDownload", MODE_PRIVATE);
+        editorDownload = sharedPrefDownload.edit();
+
+        BroadcastReceiver broadcastReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                if (DownloadManager.ACTION_DOWNLOAD_COMPLETE.equals(intent.getAction())) {
+
+                    DownloadManager.Query query = new DownloadManager.Query();
+                    query.setFilterById(sharedPrefDownload.getLong("refID", 0));
+
+                    downloadManager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
+                    Cursor cursor = downloadManager.query(query);
+                    if (cursor.moveToFirst()) {
+                        int colIndex = cursor.getColumnIndex(DownloadManager.COLUMN_STATUS);
+                        if (DownloadManager.STATUS_SUCCESSFUL == cursor.getInt(colIndex)) {
+
+                            editorDownload.putBoolean("flag", true);
+                            editorDownload.commit();
+
+                            Toast.makeText(context, "New App downloaded!!", Toast.LENGTH_SHORT).show();
+                            bi.appbarmain.contentmain.lblAppVersion.setText("MNCH App New Version " + newVer + "  Downloaded.");
+
+                            ActivityManager am = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
+                            List<ActivityManager.RunningTaskInfo> taskInfo = am.getRunningTasks(1);
+                            if (taskInfo.get(0).topActivity.getClassName().equals(MainActivity.class.getName())) {
+//                                InstallNewApp(newVer, preVer);
+                                showDialog(newVer, preVer);
+                            }
+                        }
+                    }
+                }
+            }
+        };
+
+        versionAppContract = new Gson().fromJson(getSharedPreferences("main", Context.MODE_PRIVATE).getString("appVersion", ""), VersionAppContract.class);
+        if (versionAppContract != null) {
+
+            if (versionAppContract.getVersioncode() != null) {
+                preVer = MainApp.versionName + "." + MainApp.versionCode;
+                newVer = versionAppContract.getVersionname() + "." + versionAppContract.getVersioncode();
+
+                if (MainApp.versionCode < Integer.valueOf(versionAppContract.getVersioncode())) {
+                    bi.appbarmain.contentmain.lblAppVersion.setVisibility(View.VISIBLE);
+
+                    String fileName = AppDatabase.Sub_DBConnection.DATABASE_NAME.replace(".db", "-New-Apps");
+                    file = new File(Environment.getExternalStorageDirectory() + File.separator + fileName, versionAppContract.getPathname());
+
+                    if (file.exists()) {
+                        bi.appbarmain.contentmain.lblAppVersion.setText("MNCH New Version " + newVer + "  Downloaded.");
+                        showDialog(newVer, preVer);
+                    } else {
+                        NetworkInfo networkInfo = ((ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE)).getActiveNetworkInfo();
+                        if (networkInfo != null && networkInfo.isConnected()) {
+
+                            bi.appbarmain.contentmain.lblAppVersion.setText("MNCH App New Version " + newVer + " Downloading..");
+                            downloadManager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
+                            Uri uri = Uri.parse(MainApp._UPDATE_URL + versionAppContract.getPathname());
+                            DownloadManager.Request request = new DownloadManager.Request(uri);
+                            request.setDestinationInExternalPublicDir(fileName, versionAppContract.getPathname())
+                                    .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
+                                    .setTitle("Downloading MNCH App new App ver." + newVer);
+                            refID = downloadManager.enqueue(request);
+
+                            editorDownload.putLong("refID", refID);
+                            editorDownload.putBoolean("flag", false);
+                            editorDownload.commit();
+
+                        } else {
+                            bi.appbarmain.contentmain.lblAppVersion.setText("MNCH App New Version " + newVer + "  Available..\n(Can't download.. Internet connectivity issue!!)");
+                        }
+                    }
+
+                    return true;
+
+                } else {
+                    bi.appbarmain.contentmain.lblAppVersion.setVisibility(View.GONE);
+                    bi.appbarmain.contentmain.lblAppVersion.setText(null);
+                }
+            }
+        }
+
+        registerReceiver(broadcastReceiver, new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE));
+
+        return false;
+    }
+
+
+    void showDialog(String newVer, String preVer) {
+        FragmentManager ft = getSupportFragmentManager();
+        FragmentTransaction transaction = ft.beginTransaction();
+        Fragment prev = ft.findFragmentByTag("dialog");
+        if (prev != null) {
+            transaction.remove(prev);
+        }
+        transaction.addToBackStack(null);
+        DialogFragment newFragment = MyDialogFragment.newInstance(newVer, preVer);
+        newFragment.show(ft, "dialog");
+    }
+
+    public static class MyDialogFragment extends DialogFragment {
+
+        String newVer, preVer;
+
+        static MyDialogFragment newInstance(String newVer, String preVer) {
+            MyDialogFragment f = new MyDialogFragment();
+
+            Bundle args = new Bundle();
+            args.putString("newVer", newVer);
+            args.putString("preVer", preVer);
+            f.setArguments(args);
+
+            return f;
+        }
+
+        @Override
+        public Dialog onCreateDialog(Bundle savedInstanceState) {
+            newVer = getArguments().getString("newVer");
+            preVer = getArguments().getString("preVer");
+
+            return new AlertDialog.Builder(getActivity())
+                    .setIcon(android.R.drawable.ic_dialog_info)
+                    .setTitle("MNCH App is available!")
+                    .setMessage("MNCH App " + newVer + " is now available. Your are currently using older version " + preVer + ".\nInstall new version to use this app.")
+                    .setPositiveButton("INSTALL!!",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int whichButton) {
+                                    Intent intent = new Intent(Intent.ACTION_VIEW);
+                                    intent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
+                                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                    startActivity(intent);
+                                }
+                            }
+                    )
+                    .create();
+        }
+
+    }
 }

@@ -142,6 +142,7 @@
                             android:text='@{qd0401aa.checked ?  "" : qd0401b.getText.toString }'/>
 
                     </LinearLayout>
+<!--
 
                     <TextView
                         android:layout_width="match_parent"
@@ -159,6 +160,7 @@
                         android:lines="3"
                         android:inputType="textMultiLine"
                         android:text='@{qd0401aa.checked || qd0401ab.checked || qd0401a97.checked?  "" : qd0401c.getText.toString }'/>
+-->
 
                 </LinearLayout>
 
@@ -273,6 +275,7 @@
                             android:text='@{qd0402aa.checked ?  "" : qd0402b.getText.toString }'/>
 
                     </LinearLayout>
+<!--
 
                     <TextView
                         android:layout_width="match_parent"
@@ -290,6 +293,7 @@
                         android:lines="3"
                         android:inputType="textMultiLine"
                         android:text='@{qd0402aa.checked || qd0402ab.checked || qd0402a97.checked?  "" : qd0402c.getText.toString }'/>
+-->
 
                 </LinearLayout>
 
@@ -404,6 +408,7 @@
                             android:text='@{qd0403aa.checked ?  "" : qd0403b.getText.toString }'/>
 
                     </LinearLayout>
+<!--
 
                     <TextView
                         android:layout_width="match_parent"
@@ -421,6 +426,7 @@
                         android:lines="3"
                         android:inputType="textMultiLine"
                         android:text='@{qd0403aa.checked || qd0403ab.checked || qd0403a97.checked?  "" : qd0403c.getText.toString }'/>
+-->
 
                 </LinearLayout>
 
@@ -535,6 +541,7 @@
                             android:text='@{qd0404aa.checked ?  "" : qd0404b.getText.toString }'/>
 
                     </LinearLayout>
+<!--
 
                     <TextView
                         android:layout_width="match_parent"
@@ -552,6 +559,32 @@
                         android:lines="3"
                         android:inputType="textMultiLine"
                         android:text='@{qd0404aa.checked || qd0404ab.checked || qd0404a97.checked?  "" : qd0404c.getText.toString }'/>
+-->
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+            <!--qd04Ap-->
+            <android.support.v7.widget.CardView style="@style/cardView">
+
+                <LinearLayout style="@style/linerlayout_view">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="5sp"
+                        android:background="@color/colorPrimaryDark"
+                        android:textSize="23sp"
+                        android:text="@string/qaAp"
+                        android:elevation="1dp"/>
+
+                    <EditText
+                        android:id="@+id/qd04Ap"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:lines="3"
+                        android:inputType="textMultiLine"/>
 
                 </LinearLayout>
 

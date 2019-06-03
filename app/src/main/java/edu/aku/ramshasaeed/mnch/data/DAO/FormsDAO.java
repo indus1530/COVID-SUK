@@ -9,10 +9,8 @@ import android.arch.persistence.room.Update;
 import edu.aku.ramshasaeed.mnch.data.AppDatabase;
 import edu.aku.ramshasaeed.mnch.data.AppDatabase.Sub_DBConnection;
 import edu.aku.ramshasaeed.mnch.data.entities.District;
-import edu.aku.ramshasaeed.mnch.data.entities.Facility_provider;
+import edu.aku.ramshasaeed.mnch.data.entities.FacilityProvider;
 import edu.aku.ramshasaeed.mnch.data.entities.Forms;
-import edu.aku.ramshasaeed.mnch.data.entities.Tehsil;
-import edu.aku.ramshasaeed.mnch.data.entities.UCs;
 import edu.aku.ramshasaeed.mnch.data.entities.Users;
 
 @Dao
@@ -36,13 +34,14 @@ public interface FormsDAO {
     @Insert
     Long insertDistrict(District district);
 
+    @Insert
+    Long insertFacilityProvider(FacilityProvider facility_provider);
+
   /*  @Insert
     Long insertTehsil(Tehsil tehsil);
 
     @Insert
-    Long insertUCs(UCs ucs);
-    @Insert
-    Long insertFacilityProvider(Facility_provider facility_provider);*/
+    Long insertUCs(UCs ucs);*/
 
     @Query("DELETE from " + AppDatabase.Sub_DBConnection.TABLE_USERS)
     int deleteUsers();
@@ -50,15 +49,15 @@ public interface FormsDAO {
     @Query("DELETE from " + Sub_DBConnection.TABLE_DISTRICT)
     int deleteDistrict();
 
+    @Query("DELETE from " + Sub_DBConnection.TABLE_FACILITY_PROVIDER)
+    int deleteFacilityProvider();
+
    /* @Query("DELETE from " + Sub_DBConnection.TABLE_TEHSIL)
     int deleteTehsil();
 
     @Query("DELETE from " + Sub_DBConnection.TABLE_UCs)
-    int deleteUcs();
+    int deleteUcs();*/
 
-    @Query("DELETE from " + Sub_DBConnection.TABLE_FACILITY_PROVIDER)
-    int deleteFacilityProvider();
-*/
 
     /*Update methods after upload on server*/
 
@@ -66,9 +65,7 @@ public interface FormsDAO {
      * Updating only sync and syncDate
      * By order id
      */
-    @Query("UPDATE Forms SET synced = :synced, synced_date= :date WHERE id =:id")
-    int updateSyncedForms(String synced, String date, int id);
-
-
+    @Query("UPDATE Forms SET synced = '1', synced_date= :date WHERE id =:id")
+    int updateSyncedForms(String date, int id);
 
 }

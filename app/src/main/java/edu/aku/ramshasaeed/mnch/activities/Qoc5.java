@@ -84,17 +84,19 @@ public class Qoc5 extends AppCompatActivity implements RadioGroup.OnCheckedChang
 
         JSONObject qoc5 = new JSONObject();
 
-        qoc5.put("qe0501a", bi.qe0501aa.isChecked() ? "1" : bi.qe0501ab.isChecked() ? "2" : bi.qe0501a97.isChecked() ? "97" : "0");
+        qoc5.put("qe0501a", bi.qe0501aa.isChecked() ? "1" : bi.qe0501ab.isChecked() ? "2" : bi.qe0501a97.isChecked() ? "NA" : "0");
         qoc5.put("qe0501b", bi.qe0501b.getText().toString().trim().length() > 0 ? bi.qe0501b.getText().toString() : "0");
-        qoc5.put("qe0501c", bi.qe0501c.getText().toString().trim().length() > 0 ? bi.qe0501c.getText().toString() : "0");
+//        qoc5.put("qe0501c", bi.qe0501c.getText().toString().trim().length() > 0 ? bi.qe0501c.getText().toString() : "0");
 
-        qoc5.put("qe0502a", bi.qe0502aa.isChecked() ? "1" : bi.qe0502ab.isChecked() ? "2" : bi.qe0502a97.isChecked() ? "97" : "0");
+        qoc5.put("qe0502a", bi.qe0502aa.isChecked() ? "1" : bi.qe0502ab.isChecked() ? "2" : bi.qe0502a97.isChecked() ? "NA" : "0");
         qoc5.put("qe0502b", bi.qe0502b.getText().toString().trim().length() > 0 ? bi.qe0502b.getText().toString() : "0");
-        qoc5.put("qe0502c", bi.qe0502c.getText().toString().trim().length() > 0 ? bi.qe0502c.getText().toString() : "0");
+//        qoc5.put("qe0502c", bi.qe0502c.getText().toString().trim().length() > 0 ? bi.qe0502c.getText().toString() : "0");
 
-        qoc5.put("qe0503a", bi.qe0503aa.isChecked() ? "1" : bi.qe0503ab.isChecked() ? "2" : bi.qe0503a97.isChecked() ? "97" : "0");
+        qoc5.put("qe0503a", bi.qe0503aa.isChecked() ? "1" : bi.qe0503ab.isChecked() ? "2" : bi.qe0503a97.isChecked() ? "NA" : "0");
         qoc5.put("qe0503b", bi.qe0503b.getText().toString().trim().length() > 0 ? bi.qe0503b.getText().toString() : "0");
-        qoc5.put("qe0503c", bi.qe0503c.getText().toString().trim().length() > 0 ? bi.qe0503c.getText().toString() : "0");
+//        qoc5.put("qe0503c", bi.qe0503c.getText().toString().trim().length() > 0 ? bi.qe0503c.getText().toString() : "0");
+
+        qoc5.put("qe05Ap", bi.qe05Ap.getText().toString().trim().length() > 0 ? bi.qe05Ap.getText().toString() : "0");
 
         fc.setSqoc5(String.valueOf(qoc5));
 

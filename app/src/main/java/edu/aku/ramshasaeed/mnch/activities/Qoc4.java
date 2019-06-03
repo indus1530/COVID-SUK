@@ -84,21 +84,24 @@ public class Qoc4 extends AppCompatActivity implements RadioGroup.OnCheckedChang
 
         JSONObject qoc4 = new JSONObject();
 
-        qoc4.put("qd0401a", bi.qd0401aa.isChecked() ? "1" : bi.qd0401ab.isChecked() ? "2" : bi.qd0401a97.isChecked() ? "97" : "0");
+        qoc4.put("qd0401a", bi.qd0401aa.isChecked() ? "1" : bi.qd0401ab.isChecked() ? "2" : bi.qd0401a97.isChecked() ? "NA" : "0");
         qoc4.put("qd0401b", bi.qd0401b.getText().toString().trim().length() > 0 ? bi.qd0401b.getText().toString() : "0");
-        qoc4.put("qd0401c", bi.qd0401c.getText().toString().trim().length() > 0 ? bi.qd0401c.getText().toString() : "0");
+//        qoc4.put("qd0401c", bi.qd0401c.getText().toString().trim().length() > 0 ? bi.qd0401c.getText().toString() : "0");
 
-        qoc4.put("qd0402a", bi.qd0402aa.isChecked() ? "1" : bi.qd0402ab.isChecked() ? "2" : bi.qd0402a97.isChecked() ? "97" : "0");
+        qoc4.put("qd0402a", bi.qd0402aa.isChecked() ? "1" : bi.qd0402ab.isChecked() ? "2" : bi.qd0402a97.isChecked() ? "NA" : "0");
         qoc4.put("qd0402b", bi.qd0402b.getText().toString().trim().length() > 0 ? bi.qd0402b.getText().toString() : "0");
-        qoc4.put("qd0402c", bi.qd0402c.getText().toString().trim().length() > 0 ? bi.qd0402c.getText().toString() : "0");
+//        qoc4.put("qd0402c", bi.qd0402c.getText().toString().trim().length() > 0 ? bi.qd0402c.getText().toString() : "0");
 
-        qoc4.put("qd0403a", bi.qd0403aa.isChecked() ? "1" : bi.qd0403ab.isChecked() ? "2" : bi.qd0403a97.isChecked() ? "97" : "0");
+        qoc4.put("qd0403a", bi.qd0403aa.isChecked() ? "1" : bi.qd0403ab.isChecked() ? "2" : bi.qd0403a97.isChecked() ? "NA" : "0");
         qoc4.put("qd0403b", bi.qd0403b.getText().toString().trim().length() > 0 ? bi.qd0403b.getText().toString() : "0");
-        qoc4.put("qd0403c", bi.qd0403c.getText().toString().trim().length() > 0 ? bi.qd0403c.getText().toString() : "0");
+//        qoc4.put("qd0403c", bi.qd0403c.getText().toString().trim().length() > 0 ? bi.qd0403c.getText().toString() : "0");
 
-        qoc4.put("qd0404a", bi.qd0404aa.isChecked() ? "1" : bi.qd0404ab.isChecked() ? "2" : bi.qd0404a97.isChecked() ? "97" : "0");
+        qoc4.put("qd0404a", bi.qd0404aa.isChecked() ? "1" : bi.qd0404ab.isChecked() ? "2" : bi.qd0404a97.isChecked() ? "NA" : "0");
         qoc4.put("qd0404b", bi.qd0404b.getText().toString().trim().length() > 0 ? bi.qd0404b.getText().toString() : "0");
-        qoc4.put("qd0404c", bi.qd0404c.getText().toString().trim().length() > 0 ? bi.qd0404c.getText().toString() : "0");
+//        qoc4.put("qd0404c", bi.qd0404c.getText().toString().trim().length() > 0 ? bi.qd0404c.getText().toString() : "0");
+
+        qoc4.put("qd04Ap", bi.qd04Ap.getText().toString().trim().length() > 0 ? bi.qd04Ap.getText().toString() : "0");
+
 
         fc.setSqoc4(String.valueOf(qoc4));
 

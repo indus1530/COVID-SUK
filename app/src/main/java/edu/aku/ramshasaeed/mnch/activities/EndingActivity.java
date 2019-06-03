@@ -26,7 +26,7 @@ import static edu.aku.ramshasaeed.mnch.activities.RSDInfoActivity.fc;
 public class EndingActivity extends AppCompatActivity {
     ActivityEndingBinding bi;
     private static final String TAG = EndingActivity.class.getSimpleName();
-    String dtToday = new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime());
+    String dtToday = new SimpleDateFormat("dd-MM-yyyy HH:mm").format(new Date().getTime());
 
     //    ActivityEndingBinding binding;
     @Override
